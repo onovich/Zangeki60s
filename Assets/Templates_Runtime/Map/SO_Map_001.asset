@@ -14,63 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 1
   mapSize: {x: 20, y: 10}
-  terrainSpawnPosArr:
-  - {x: -4, y: -1}
-  - {x: 0, y: -1}
-  - {x: 4, y: -1}
-  - {x: -9, y: -3}
-  - {x: -8, y: -4}
-  - {x: -8, y: -3}
-  - {x: -7, y: -4}
-  - {x: -7, y: -3}
-  - {x: -6, y: -4}
-  - {x: -6, y: -3}
-  - {x: -5, y: -4}
-  - {x: -5, y: -3}
-  - {x: -4, y: -4}
-  - {x: -4, y: -3}
-  - {x: -3, y: -4}
-  - {x: -3, y: -3}
-  - {x: -2, y: -4}
-  - {x: -2, y: -3}
-  - {x: -1, y: -4}
-  - {x: -1, y: -3}
-  - {x: 0, y: -4}
-  - {x: 0, y: -3}
-  - {x: 1, y: -4}
-  - {x: 1, y: -3}
-  - {x: 2, y: -4}
-  - {x: 2, y: -3}
-  - {x: 3, y: -4}
-  - {x: 3, y: -3}
-  - {x: 4, y: -4}
-  - {x: 4, y: -3}
-  - {x: 5, y: -4}
-  - {x: 5, y: -3}
-  - {x: 6, y: -4}
-  - {x: 6, y: -3}
-  - {x: 7, y: -4}
-  - {x: 7, y: -3}
-  - {x: 8, y: -4}
-  - {x: 8, y: -3}
-  - {x: 8, y: -2}
-  - {x: 8, y: -1}
-  - {x: 9, y: -4}
-  - {x: 9, y: -3}
-  - {x: 10, y: -3}
-  - {x: 11, y: -3}
-  - {x: 12, y: -3}
-  - {x: 13, y: -3}
-  - {x: 14, y: -3}
-  - {x: 15, y: -3}
-  - {x: 16, y: -3}
-  - {x: 17, y: -3}
-  - {x: 18, y: -3}
-  - {x: 19, y: -3}
-  - {x: 20, y: -3}
-  - {x: 21, y: -3}
-  middlePoint: {x: 0, y: 0}
-  leftBound: {x: 4, y: -1}
-  rightBound: {x: 5, y: 0}
+  leftWaveTM: {fileID: 11400000, guid: 0ae52a623bf8b4c65a2498bee9da44b4, type: 2}
+  rightWaveTM: {fileID: 11400000, guid: 9f679bb9402d34ab3b9ae6d5e574a115, type: 2}
+  middlePoint: {x: 0, y: -1}
+  leftBound: {x: -4, y: -1}
+  rightBound: {x: 4, y: -1}
   cameraConfinerWorldMax: {x: 30, y: 20}
   cameraConfinerWorldMin: {x: -30, y: -20}

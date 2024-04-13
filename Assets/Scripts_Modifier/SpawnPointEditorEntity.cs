@@ -16,10 +16,8 @@ namespace Zangeki.Modifier {
             this.gameObject.name = $"Spawn Point {side}";
         }
 
-        public Vector2Int GetPosInt() {
-            var posInt = this.transform.position.RoundToVector2Int();
-            this.transform.position = posInt.ToVector3Int();
-            return posInt;
+        public Vector2 GetPos() {
+            return transform.position;
         }
 
         public Vector2Int GetSizeInt() {

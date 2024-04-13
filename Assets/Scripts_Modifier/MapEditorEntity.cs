@@ -12,6 +12,8 @@ namespace Zangeki.Modifier {
         [SerializeField] int typeID;
         [SerializeField] GameObject mapSize;
         [SerializeField] MapTM mapTM;
+        [SerializeField] WaveTM leftWaveTM;
+        [SerializeField] WaveTM rightWaveTM;
         [SerializeField] Transform pointGroup;
 
         IndexService indexService;
@@ -31,6 +33,8 @@ namespace Zangeki.Modifier {
         void BakeMapInfo() {
             mapTM.typeID = typeID;
             mapTM.mapSize = mapSize.transform.localScale.RoundToVector2Int();
+            mapTM.leftWaveTM = leftWaveTM;
+            mapTM.rightWaveTM = rightWaveTM;
         }
 
         void BakeSpawnPoint() {
@@ -41,12 +45,10 @@ namespace Zangeki.Modifier {
             for (int i = 0; i < editors.Length; i++) {
                 var editor = editors[i];
                 editor.Rename(i);
-                var posInt = editor.GetPosInt();
-                var sizeInt = editor.GetSizeInt();
-                mapTM.terrainSpawnPosArr[i] = posInt;
-                mapTM.leftBound = posInt;
-                mapTM.rightBound = posInt + sizeInt;
             }
+            mapTM.leftBound = editors[0].GetPos();
+            mapTM.middlePoint = editors[1].GetPos();
+            mapTM.rightBound = editors[2].GetPos();
         }
 
         void OnDrawGizmos() {

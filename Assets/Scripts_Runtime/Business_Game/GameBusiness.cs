@@ -53,7 +53,11 @@ namespace Zangeki {
         static void PreTick(GameBusinessContext ctx, float dt) {
             var game = ctx.gameEntity;
             var status = game.fsmComponent.status;
+            var map = ctx.currentMapEntity;
             if (status == GameStatus.Gaming) {
+
+                // Wave
+                GameWaveDomain.ApplySpawnWaveEnemies(ctx, map,dt);
 
                 // Roles
                 var roleLen = ctx.roleRepo.TakeAll(out var roleArr);

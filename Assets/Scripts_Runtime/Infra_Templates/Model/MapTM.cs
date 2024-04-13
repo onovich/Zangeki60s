@@ -11,8 +11,9 @@ namespace Zangeki {
 
         public Vector2Int mapSize;
 
-        // Terrain
-        public Vector2Int[] terrainSpawnPosArr;
+        // Wave
+        public WaveTM leftWaveTM;
+        public WaveTM rightWaveTM;
 
         // Point
         public Vector2 middlePoint;

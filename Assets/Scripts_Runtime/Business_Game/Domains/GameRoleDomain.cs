@@ -9,7 +9,8 @@ namespace Zangeki {
                                               ctx.assetsInfraContext,
                                               ctx.idRecordService,
                                               typeID,
-                                              pos);
+                                              pos,
+                                              Vector2.right);
 
             ctx.roleRepo.Add(role);
             return role;
