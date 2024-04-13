@@ -59,7 +59,7 @@ namespace Zangeki {
 
         // Cast
         public void Cast_ApplyCast() {
-            if (!inputCom.isCasting) {
+            if (inputCom.skillAxis == Vector2.zero) {
                 return;
             }
             roleMod.PlayAttack();
@@ -69,14 +69,14 @@ namespace Zangeki {
         public void Move_ApplyMove(float dt) {
             float dir = 0f;
             if (allyStatus == AllyStatus.Friend) {
-                dir = inputCom.moveAxis.x;
+                dir = inputCom.skillAxis.x;
             } else if (allyStatus == AllyStatus.Enemy) {
                 dir = faceDir.x;
+                Move_Apply(dir, Attr_GetMoveSpeed(), dt);
             } else {
                 GLog.LogError($"Move_ApplyMove: unknown allyStatus: {allyStatus}");
             }
-            Move_Apply(dir, Attr_GetMoveSpeed(), dt);
-            Move_SetFace(inputCom.moveAxis);
+            Move_SetFace(dir * Vector2.right);
         }
 
         public void Move_Stop() {

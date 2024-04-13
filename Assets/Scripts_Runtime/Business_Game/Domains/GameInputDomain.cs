@@ -10,8 +10,7 @@ namespace Zangeki {
         public static void Owner_BakeInput(GameBusinessContext ctx, RoleEntity owner) {
             InputEntity inputEntity = ctx.inputEntity;
             ref RoleInputComponent inputCom = ref owner.inputCom;
-            inputCom.moveAxis = inputEntity.moveAxis;
-            inputCom.isCasting = inputEntity.isCasting;
+            inputCom.skillAxis = inputEntity.moveAxis;
         }
 
     }
