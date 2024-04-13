@@ -63,7 +63,6 @@ namespace Zangeki {
 
             // Set Attr
             role.moveSpeed = roleTM.moveSpeed;
-            role.Move_SetFace(Vector2.right * roleTM.direction);
 
             // Set Pos
             role.Pos_SetPos(pos);

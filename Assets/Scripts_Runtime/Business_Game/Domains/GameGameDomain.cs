@@ -29,7 +29,8 @@ namespace Zangeki {
             var spawnPoint = mapTM.middlePoint;
             var owner = GameRoleDomain.Spawn(ctx,
                                              config.ownerRoleTypeID,
-                                             spawnPoint);
+                                             spawnPoint,
+                                             Vector2.right);
             player.ownerRoleEntityID = owner.entityID;
             ctx.ownerSpawnPoint = spawnPoint;
 

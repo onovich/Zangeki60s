@@ -31,7 +31,7 @@ namespace Zangeki {
             var roleTypeID = wave.roleTypeIDArr[currentIndex];
             var pos = isLeftSide ? map.leftBound : map.rightBound;
             var direction = isLeftSide ? Vector2.right : Vector2.left;
-            GameFactory.Role_Spawn(ctx.templateInfraContext, ctx.assetsInfraContext, ctx.idRecordService, roleTypeID, pos, direction);
+            GameRoleDomain.Spawn(ctx, roleTypeID, pos, direction);
             wave.IncWaveIndex();
 
         }

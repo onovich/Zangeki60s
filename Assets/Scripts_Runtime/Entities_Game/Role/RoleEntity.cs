@@ -67,7 +67,15 @@ namespace Zangeki {
 
         // Move
         public void Move_ApplyMove(float dt) {
-            Move_Apply(inputCom.moveAxis.x, Attr_GetMoveSpeed(), dt);
+            float dir = 0f;
+            if (allyStatus == AllyStatus.Friend) {
+                dir = inputCom.moveAxis.x;
+            } else if (allyStatus == AllyStatus.Enemy) {
+                dir = faceDir.x;
+            } else {
+                GLog.LogError($"Move_ApplyMove: unknown allyStatus: {allyStatus}");
+            }
+            Move_Apply(dir, Attr_GetMoveSpeed(), dt);
             Move_SetFace(inputCom.moveAxis);
         }
 
