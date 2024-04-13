@@ -23,20 +23,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ba828941d6a034509996b63dc2b6711c
-    m_Address: Entity_Block
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Entity
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4018fc33898364a0baf049030c9aee36
     m_Address: Entity_Map
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Entity
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: aa89bbc9df39b43dfa714862494f52d4
-    m_Address: Entity_Spike
     m_ReadOnly: 0
     m_SerializedLabels:
     - Entity

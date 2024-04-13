@@ -13,15 +13,10 @@ namespace Zangeki {
 
         // Attr
         public float moveSpeed;
-        public float jumpForce;
-        public float g;
-        public float fallingSpeedMax;
         public Vector2 Velocity => rb.velocity;
-        public int hp;
-        public int hpMax;
+        public Vector2 faceDir;
 
         // State
-        public bool isGround;
         public bool needTearDown;
 
         // FSM
@@ -32,7 +27,7 @@ namespace Zangeki {
 
         // Render
         [SerializeField] public Transform body;
-        [SerializeField] SpriteRenderer spr;
+        RoleMod roleMod;
 
         // VFX
         public string deadVFXName;
@@ -40,40 +35,13 @@ namespace Zangeki {
 
         // Physics
         [SerializeField] Rigidbody2D rb;
-        [SerializeField] RoleCollisionComponent bodyCollider;
-        [SerializeField] RoleCollisionComponent bodyTrigger;
-        [SerializeField] RoleCollisionComponent footTrigger;
 
         // Pos
         public Vector2 Pos => Pos_GetPos();
 
-        // Action
-        public event Action<RoleEntity, Collider2D> OnFootTriggerEnterHandle;
-        public event Action<RoleEntity, Collider2D> OnFootTriggerStayHandle;
-        public event Action<RoleEntity, Collider2D> OnFootTriggerExitHandle;
-
-        public event Action<RoleEntity, Collision2D> OnBodyCollisionEnterHandle;
-        public event Action<RoleEntity, Collision2D> OnBodyCollisionStayHandle;
-        public event Action<RoleEntity, Collision2D> OnBodyCollisionExitHandle;
-
-        public event Action<RoleEntity, Collider2D> OnBodyTriggerEnterHandle;
-
         public void Ctor() {
             fsmCom = new RoleFSMComponent();
             inputCom = new RoleInputComponent();
-            Binding();
-        }
-
-        void Binding() {
-            footTrigger.OnTriggerEnterHandle += (coll) => { OnFootTriggerEnterHandle.Invoke(this, coll); };
-            footTrigger.OnTriggerStayHandle += (coll) => { OnFootTriggerStayHandle.Invoke(this, coll); };
-            footTrigger.OnTriggerExitHandle += (coll) => { OnFootTriggerExitHandle.Invoke(this, coll); };
-
-            bodyCollider.OnCollisionEnterHandle += (coll) => { OnBodyCollisionEnterHandle.Invoke(this, coll); };
-            bodyCollider.OnCollisionStayHandle += (coll) => { OnBodyCollisionStayHandle.Invoke(this, coll); };
-            bodyCollider.OnCollisionExitHandle += (coll) => { OnBodyCollisionExitHandle.Invoke(this, coll); };
-
-            bodyTrigger.OnTriggerEnterHandle += (coll) => { OnBodyTriggerEnterHandle.Invoke(this, coll); };
         }
 
         // Pos
@@ -90,13 +58,10 @@ namespace Zangeki {
             return moveSpeed;
         }
 
-        public void Attr_GetHurt() {
-            hp -= 1;
-        }
-
         // Move
         public void Move_ApplyMove(float dt) {
             Move_Apply(inputCom.moveAxis.x, Attr_GetMoveSpeed(), dt);
+            Move_SetFace(inputCom.moveAxis);
         }
 
         public void Move_Stop() {
@@ -109,32 +74,16 @@ namespace Zangeki {
             rb.velocity = velo;
         }
 
-        public void Move_EnterGround() {
-            isGround = true;
-        }
-
-        public void Move_LeaveGround() {
-            isGround = false;
-        }
-
-        public void Move_Jump() {
-            if (!isGround) {
-                return;
+        public void Move_SetFace(Vector2 moveDir) {
+            if (moveDir != Vector2.zero) {
+                faceDir = moveDir;
             }
-            if (inputCom.jumpAxis <= 0) {
-                return;
-            }
-            var velo = rb.velocity;
-            velo.y = jumpForce;
-            rb.velocity = velo;
-            Move_LeaveGround();
-        }
 
-        public void Move_Falling(float dt) {
-            var velo = rb.velocity;
-            velo.y -= g * dt;
-            velo.y = Mathf.Max(velo.y, -fallingSpeedMax);
-            rb.velocity = velo;
+            if (moveDir.x != 0) {
+                body.localScale = new Vector3(Mathf.Abs(body.localScale.x) * -Mathf.Sign(moveDir.x),
+                                              body.localScale.y,
+                                              body.localScale.z);
+            }
         }
 
         // FSM
@@ -154,15 +103,35 @@ namespace Zangeki {
             fsmCom.EnterDead();
         }
 
-        // Mesh
-        public void Mesh_Set(Sprite sp) {
-            this.spr.sprite = sp;
+        // Mod
+        public void Mod_Set(RoleMod mod) {
+            roleMod = mod;
         }
 
+        // Anim
+        public void Anim_PlayIdle() {
+            roleMod.PlayIdle();
+        }
+
+        public void Anim_PlayAttack() {
+            roleMod.PlayAttack();
+        }
+
+        public void Anim_PlayAttackFail() {
+            roleMod.PlayAttackFail();
+        }
+
+        public void Anim_PlayHurt() {
+            roleMod.PlayHurt();
+        }
+
+        public void Anim_SetMovement(float speed) {
+            roleMod.Anim_SetMovement(speed);
+        }
+
+        // VFX
         public void TearDown() {
-            footTrigger.TearDown();
-            bodyCollider.TearDown();
-            bodyTrigger.TearDown();
+            roleMod.TearDown();
             Destroy(this.gameObject);
         }
 

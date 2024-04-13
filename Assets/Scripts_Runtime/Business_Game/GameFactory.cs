@@ -46,17 +46,15 @@ namespace Zangeki {
 
             // Set Attr
             role.moveSpeed = roleTM.moveSpeed;
-            role.jumpForce = roleTM.jumpForce;
-            role.g = roleTM.g;
-            role.fallingSpeedMax = roleTM.fallingSpeedMax;
-            role.hp = roleTM.hp;
-            role.hpMax = roleTM.hp;
+            role.Move_SetFace(Vector2.right * roleTM.direction);
 
             // Set Pos
             role.Pos_SetPos(pos);
 
-            // Set Mesh
-            role.Mesh_Set(roleTM.mesh);
+            // Set Mod
+            var modPrefab = roleTM.mod;
+            var mod = GameObject.Instantiate(modPrefab, role.body).GetComponent<RoleMod>();
+            role.Mod_Set(mod);
 
             // Set FSM
             role.FSM_EnterIdle();
