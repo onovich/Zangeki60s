@@ -14,8 +14,10 @@ namespace Zangeki {
         // Terrain
         public Vector2Int[] terrainSpawnPosArr;
 
-        // Role Spawn 
-        public Vector2 SpawnPoint;
+        // Point
+        public Vector2 middlePoint;
+        public Vector2 leftBound;
+        public Vector2 rightBound;
 
         // Camera
         public Vector2 cameraConfinerWorldMax;

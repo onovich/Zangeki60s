@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 1
   mapSize: {x: 20, y: 10}
-  tileBase_terrain: {fileID: 11400000, guid: 7cff088cd60594a7e9c71fce7ed147d4, type: 2}
   terrainSpawnPosArr:
-  - {x: -10, y: -4}
-  - {x: -10, y: -3}
-  - {x: -9, y: -4}
+  - {x: -4, y: -1}
+  - {x: 0, y: -1}
+  - {x: 4, y: -1}
   - {x: -9, y: -3}
   - {x: -8, y: -4}
   - {x: -8, y: -3}
@@ -70,6 +69,8 @@ MonoBehaviour:
   - {x: 19, y: -3}
   - {x: 20, y: -3}
   - {x: 21, y: -3}
-  SpawnPoint: {x: 0, y: -1}
+  middlePoint: {x: 0, y: 0}
+  leftBound: {x: 4, y: -1}
+  rightBound: {x: 5, y: 0}
   cameraConfinerWorldMax: {x: 30, y: 20}
   cameraConfinerWorldMin: {x: -30, y: -20}

@@ -18,7 +18,7 @@ namespace Zangeki {
             map.Ctor();
             map.typeID = typeID;
             map.mapSize = mapTM.mapSize;
-            map.SetGroundPos(mapTM.SpawnPoint);
+            map.SetGroundPos(mapTM.middlePoint);
 
             return map;
         }

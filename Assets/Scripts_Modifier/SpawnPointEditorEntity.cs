@@ -4,8 +4,16 @@ namespace Zangeki.Modifier {
 
     public class SpawnPointEditorEntity : MonoBehaviour {
 
-        public void Rename() {
-            this.gameObject.name = "Spawn Point";
+        public void Rename(int index) {
+            string side = "";
+            if (index == 0) {
+                side = "Left";
+            } else if (index == 1) {
+                side = "Middle";
+            } else if (index == 2) {
+                side = "Right";
+            }
+            this.gameObject.name = $"Spawn Point {side}";
         }
 
         public Vector2Int GetPosInt() {

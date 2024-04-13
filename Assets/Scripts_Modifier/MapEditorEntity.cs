@@ -12,7 +12,7 @@ namespace Zangeki.Modifier {
         [SerializeField] int typeID;
         [SerializeField] GameObject mapSize;
         [SerializeField] MapTM mapTM;
-        [SerializeField] Transform spawnPointGroup;
+        [SerializeField] Transform pointGroup;
 
         IndexService indexService;
 
@@ -34,13 +34,19 @@ namespace Zangeki.Modifier {
         }
 
         void BakeSpawnPoint() {
-            var editor = spawnPointGroup.GetComponent<SpawnPointEditorEntity>();
-            if (editor == null) {
+            var editors = pointGroup.GetComponentsInChildren<SpawnPointEditorEntity>();
+            if (editors == null) {
                 Debug.Log("SpawnPointEditor Not Found");
             }
-            editor.Rename();
-            var posInt = editor.GetPosInt();
-            mapTM.SpawnPoint = posInt;
+            for (int i = 0; i < editors.Length; i++) {
+                var editor = editors[i];
+                editor.Rename(i);
+                var posInt = editor.GetPosInt();
+                var sizeInt = editor.GetSizeInt();
+                mapTM.terrainSpawnPosArr[i] = posInt;
+                mapTM.leftBound = posInt;
+                mapTM.rightBound = posInt + sizeInt;
+            }
         }
 
         void OnDrawGizmos() {
