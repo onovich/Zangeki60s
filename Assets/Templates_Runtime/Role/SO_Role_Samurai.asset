@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1289747e8e3f8452f897cda1fbd54609, type: 3}
   m_Name: SO_Role_Samurai
   m_EditorClassIdentifier: 
-  typeID: 1
-  allyStatus: 1
-  aiType: 0
+  typeID: 2
+  allyStatus: 2
+  aiType: 1
   moveSpeed: 6.5
-  jumpForce: 16
-  g: 50
-  fallingSpeedMax: 40
-  hp: 1
+  direction: 0
   mod: {fileID: 3927939327069252055, guid: de859ed0e0f5d46a495ab26f0ea5ae3b, type: 3}
   deadVFX: {fileID: 1046417506903995189, guid: 4cc547ee9ad754a728a343efb6c300c0, type: 3}
   deadVFXDuration: 2

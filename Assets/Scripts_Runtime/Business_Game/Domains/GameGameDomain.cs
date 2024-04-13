@@ -22,10 +22,6 @@ namespace Zangeki {
                 GLog.LogError($"MapTM Not Found {mapTypeID}");
             }
 
-            // - Terrain
-            var terrainPosArr = mapTM.terrainSpawnPosArr;
-            GameMapDomain.Terrain_SetAll(ctx, map, terrainPosArr);
-
             // Role
             var player = ctx.playerEntity;
 
@@ -38,7 +34,7 @@ namespace Zangeki {
             ctx.ownerSpawnPoint = spawnPoint;
 
             // Camera
-            CameraApp.Init(ctx.cameraContext, owner.transform, owner.Pos, mapTM.cameraConfinerWorldMax, mapTM.cameraConfinerWorldMin);
+            CameraApp.Init(ctx.cameraContext, owner.transform, Vector2.zero, mapTM.cameraConfinerWorldMax, mapTM.cameraConfinerWorldMin);
 
             // UI
 

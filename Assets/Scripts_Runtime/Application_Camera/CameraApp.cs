@@ -12,12 +12,6 @@ namespace Zangeki {
         public static void Init(CameraAppContext ctx, Transform driver, Vector2 pos, Vector2 confinerWorldMax, Vector2 confinerWorldMin) {
             var cameraID = CreateMainCamera(ctx, pos, confinerWorldMax, confinerWorldMin);
             SetCurrentCamera(ctx, cameraID);
-            var config = ctx.templateInfraContext.Config_Get();
-            var deadZoneNormalizedSize = config.cameraDeadZoneNormalizedSize;
-
-            SetDeadZone(ctx, deadZoneNormalizedSize);
-            EnableDeadZone(ctx, true);
-            SetMoveByDriver(ctx, driver);
         }
 
         public static void LateTick(CameraAppContext ctx, float dt) {

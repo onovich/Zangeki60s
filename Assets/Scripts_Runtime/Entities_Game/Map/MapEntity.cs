@@ -8,18 +8,13 @@ namespace Zangeki {
 
         public int typeID;
         public Vector2Int mapSize;
-        public TileBase tileBase_terrain;
 
-        [SerializeField] Tilemap tilemap_terrain;
+        [SerializeField] Transform ground;
 
         public void Ctor() { }
 
-        public void Terrain_Set(Vector2Int pos, TileBase tile) {
-            tilemap_terrain.SetTile(pos.ToVector3Int(), tile);
-        }
-
-        public void Terrain_ClearAll() {
-            tilemap_terrain.ClearAllTiles();
+        public void SetGroundPos(Vector2 pos) {
+            ground.position = pos;
         }
 
         public void TearDown() {
