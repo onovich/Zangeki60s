@@ -4,6 +4,7 @@ namespace Zangeki {
         
         None,
         Idle,
+        Leaving,
         Dead,
 
     }

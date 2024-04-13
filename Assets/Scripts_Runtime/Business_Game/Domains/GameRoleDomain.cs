@@ -22,16 +22,29 @@ namespace Zangeki {
             }
         }
 
-        public static void CheckAndLeave(GameBusinessContext ctx, RoleEntity role) {
+        public static void ApplyStage(GameBusinessContext ctx, RoleEntity role) {
             if (role.allyStatus == AllyStatus.Friend) {
                 return;
             }
             var faceDir = role.faceDir;
             var map = ctx.currentMapEntity;
+
+            var middleBound = map.middlePos;
+            var fsm = role.FSM_GetComponent();
+            if (fsm.status == RoleFSMStatus.Idle) {
+                if (faceDir.x > 0 && role.Pos.x > middleBound.x || faceDir.x < 0 && role.Pos.x < middleBound.x) {
+                    fsm.EnterLeaving(.2f);
+                }
+            }
             var leaveBound = faceDir.x > 0 ? map.rightBound : map.leftBound;
             if (faceDir.x > 0 && role.Pos.x > leaveBound.x || faceDir.x < 0 && role.Pos.x < leaveBound.x) {
                 role.needTearDown = true;
             }
+
+        }
+
+        public static void ApplyLeaving(GameBusinessContext ctx, RoleEntity role) {
+            var fsm = role.FSM_GetComponent();
 
         }
 

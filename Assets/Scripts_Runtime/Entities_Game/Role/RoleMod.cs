@@ -12,6 +12,10 @@ namespace Zangeki {
             spr.sprite = sprite;
         }
 
+        public void SetColorAlpha(float alpha) {
+            spr.color = new Color(spr.color.r, spr.color.g, spr.color.b, alpha);
+        }
+
         public void PlayIdle() {
             anim.Play("Idle");
         }

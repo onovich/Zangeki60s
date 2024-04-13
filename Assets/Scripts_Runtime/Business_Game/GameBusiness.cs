@@ -63,10 +63,6 @@ namespace Zangeki {
                 var roleLen = ctx.roleRepo.TakeAll(out var roleArr);
                 for (int i = 0; i < roleLen; i++) {
                     var role = roleArr[i];
-                    GameRoleDomain.CheckAndLeave(ctx, role);
-                }
-                for (int i = 0; i < roleLen; i++) {
-                    var role = roleArr[i];
                     GameRoleDomain.CheckAndUnSpawn(ctx, role);
                 }
 

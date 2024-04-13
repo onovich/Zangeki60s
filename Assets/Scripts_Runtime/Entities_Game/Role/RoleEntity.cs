@@ -101,6 +101,11 @@ namespace Zangeki {
             }
         }
 
+        // Color
+        public void Color_SetAlpha(float alpha) {
+            roleMod.SetColorAlpha(alpha);
+        }
+
         // FSM
         public RoleFSMStatus FSM_GetStatus() {
             return fsmCom.status;
