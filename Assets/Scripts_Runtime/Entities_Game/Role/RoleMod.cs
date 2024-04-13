@@ -13,19 +13,19 @@ namespace Zangeki {
         }
 
         public void PlayIdle() {
-            anim.Play("idle");
+            anim.Play("Idle");
         }
 
         public void PlayAttack() {
-            anim.Play("attack");
+            anim.Play("Attack");
         }
 
         public void PlayAttackFail() {
-            anim.Play("attack_fail");
+            anim.Play("Attack_Fail");
         }
 
         public void PlayHurt() {
-            anim.Play("hurt");
+            anim.Play("Hurt");
         }
 
         public void Anim_SetMovement(float speed) {
