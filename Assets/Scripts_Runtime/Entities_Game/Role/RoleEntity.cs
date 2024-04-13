@@ -9,7 +9,6 @@ namespace Zangeki {
         public int entityID;
         public int typeID;
         public AllyStatus allyStatus;
-        public AIType aiType;
 
         // Attr
         public float moveSpeed;

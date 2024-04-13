@@ -8,7 +8,6 @@ namespace Zangeki {
 
         public int typeID;
         public AllyStatus allyStatus;
-        public AIType aiType;
         public float moveSpeed;
         public int direction;
         public RoleMod mod;

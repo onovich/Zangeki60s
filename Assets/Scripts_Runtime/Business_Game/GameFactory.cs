@@ -42,7 +42,6 @@ namespace Zangeki {
             role.entityID = idRecordService.PickRoleEntityID();
             role.typeID = typeID;
             role.allyStatus = roleTM.allyStatus;
-            role.aiType = roleTM.aiType;
 
             // Set Attr
             role.moveSpeed = roleTM.moveSpeed;
