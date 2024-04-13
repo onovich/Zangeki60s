@@ -4,7 +4,7 @@ namespace Zangeki {
 
     public static class GameRoleDomain {
 
-        public static RoleEntity Spawn(GameBusinessContext ctx, int typeID, Vector2 pos,Vector2 dir) {
+        public static RoleEntity Spawn(GameBusinessContext ctx, int typeID, Vector2 pos, Vector2 dir) {
             var role = GameFactory.Role_Spawn(ctx.templateInfraContext,
                                               ctx.assetsInfraContext,
                                               ctx.idRecordService,
@@ -20,6 +20,19 @@ namespace Zangeki {
             if (role.needTearDown) {
                 UnSpawn(ctx, role);
             }
+        }
+
+        public static void CheckAndLeave(GameBusinessContext ctx, RoleEntity role) {
+            if (role.allyStatus == AllyStatus.Friend) {
+                return;
+            }
+            var faceDir = role.faceDir;
+            var map = ctx.currentMapEntity;
+            var leaveBound = faceDir.x > 0 ? map.rightBound : map.leftBound;
+            if (faceDir.x > 0 && role.Pos.x > leaveBound.x || faceDir.x < 0 && role.Pos.x < leaveBound.x) {
+                role.needTearDown = true;
+            }
+
         }
 
         public static void UnSpawn(GameBusinessContext ctx, RoleEntity role) {
