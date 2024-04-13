@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 1
   allyStatus: 1
-  aiType: 0
   moveSpeed: 6.5
-  direction: -1
+  attackDistance: 0
+  attackCD: 0.2
   mod: {fileID: 3927939327069252055, guid: 3cc0f7a37200a448eb809c199c4326aa, type: 3}
   deadVFX: {fileID: 1046417506903995189, guid: 4cc547ee9ad754a728a343efb6c300c0, type: 3}
   deadVFXDuration: 2

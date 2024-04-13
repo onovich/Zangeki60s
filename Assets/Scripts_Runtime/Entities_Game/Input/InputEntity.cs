@@ -6,8 +6,7 @@ namespace Zangeki {
 
     public class InputEntity {
 
-        public Vector2 moveAxis;
-        public bool isCasting;
+        public Vector2 skillAxis;
 
         InputKeybindingComponent keybindingCom;
 
@@ -17,16 +16,12 @@ namespace Zangeki {
 
         public void ProcessInput(Camera camera, float dt) {
 
-            if (keybindingCom.IsKeyPressing(InputKeyEnum.MoveLeft)) {
-                moveAxis.x = -1;
+            if (keybindingCom.IsKeyDown(InputKeyEnum.MoveLeft)) {
+                skillAxis.x = -1;
             }
-            if (keybindingCom.IsKeyPressing(InputKeyEnum.MoveRight)) {
-                moveAxis.x = 1;
+            if (keybindingCom.IsKeyDown(InputKeyEnum.MoveRight)) {
+                skillAxis.x = 1;
             }
-            if (keybindingCom.IsKeyUp(InputKeyEnum.Cast)) {
-                isCasting = true;
-            }
-
         }
 
         public void Keybinding_Set(InputKeyEnum key, KeyCode[] keyCodes) {
@@ -34,8 +29,7 @@ namespace Zangeki {
         }
 
         public void Reset() {
-            moveAxis = Vector2.zero;
-            isCasting = false;
+            skillAxis = Vector2.zero;
         }
 
     }

@@ -40,12 +40,22 @@ namespace Zangeki {
             if (faceDir.x > 0 && role.Pos.x > leaveBound.x || faceDir.x < 0 && role.Pos.x < leaveBound.x) {
                 role.needTearDown = true;
             }
-
         }
 
-        public static void ApplyLeaving(GameBusinessContext ctx, RoleEntity role) {
-            var fsm = role.FSM_GetComponent();
-
+        public static void ApplyAutoCast(GameBusinessContext ctx, RoleEntity role) {
+            if (role.allyStatus == AllyStatus.Friend) {
+                return;
+            }
+            if (role.fsmCom.status == RoleFSMStatus.Leaving) {
+                return;
+            }
+            var targetPos = ctx.Role_GetOwner().Pos;
+            var rolePos = role.Pos;
+            var distSqr = (targetPos - rolePos).sqrMagnitude;
+            if (distSqr < role.attackDistance * role.attackDistance) {
+                role.Cast();
+            }
+            return;
         }
 
         public static void UnSpawn(GameBusinessContext ctx, RoleEntity role) {

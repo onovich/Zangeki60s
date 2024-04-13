@@ -9,6 +9,8 @@ namespace Zangeki {
         public int typeID;
         public AllyStatus allyStatus;
         public float moveSpeed;
+        public float attackDistance;
+        public float attackCD;
         public RoleMod mod;
         public GameObject deadVFX;
         public float deadVFXDuration;

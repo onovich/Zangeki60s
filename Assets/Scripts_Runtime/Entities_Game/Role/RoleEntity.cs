@@ -14,6 +14,8 @@ namespace Zangeki {
         public float moveSpeed;
         public Vector2 Velocity => rb.velocity;
         public Vector2 faceDir;
+        public float attackDistance;
+        public float attackCD;
 
         // State
         public bool needTearDown;
@@ -62,7 +64,12 @@ namespace Zangeki {
             if (inputCom.skillAxis == Vector2.zero) {
                 return;
             }
+            Cast();
+        }
+
+        public void Cast() {
             roleMod.PlayAttack();
+            fsmCom.EnterCasting(attackCD);
         }
 
         // Move

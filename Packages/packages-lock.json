@@ -24,11 +24,11 @@
       "hash": "d28429bcf558304d11a6f7a38300db9b76cb524e"
     },
     "com.mortise.swing": {
-      "version": "ssh://git@github.com/onovich/Swing.git?path=/Assets/com.mortise.swing#unity-edition",
+      "version": "ssh://git@github.com/onovich/Swing.git?path=/Assets/com.mortise.swing#main",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "28e16b6f750137587b7527e6832b8d9bb2dac059"
+      "hash": "ec648be80e12ed20c55fffb2bbefb49b8323ea29"
     },
     "com.tenon.prism": {
       "version": "ssh://git@github.com/onovich/Prism.git?path=/Assets/com.tenon.prism#main",

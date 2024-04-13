@@ -63,6 +63,8 @@ namespace Zangeki {
 
             // Set Attr
             role.moveSpeed = roleTM.moveSpeed;
+            role.attackDistance = roleTM.attackDistance;
+            role.attackCD = roleTM.attackCD;
 
             // Set Pos
             role.Pos_SetPos(pos);
