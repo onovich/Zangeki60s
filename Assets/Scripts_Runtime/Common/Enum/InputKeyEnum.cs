@@ -5,7 +5,7 @@ namespace Zangeki {
         None,
         MoveRight = 100,
         MoveLeft = 110,
-        Jump = 120,
+        Cast = 120,
 
     }
 

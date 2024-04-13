@@ -32,6 +32,9 @@ namespace Zangeki {
             // Move
             GameRoleDomain.ApplyMove(ctx, role, fixdt);
 
+            // Cast
+            GameRoleDomain.ApplyCast(ctx, role);
+
         }
 
         static void FixedTickFSM_Dead(GameBusinessContext ctx, RoleEntity role, float fixdt) {

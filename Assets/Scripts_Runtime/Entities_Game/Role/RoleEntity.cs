@@ -58,6 +58,14 @@ namespace Zangeki {
             return moveSpeed;
         }
 
+        // Cast
+        public void Cast_ApplyCast() {
+            if (!inputCom.isCasting) {
+                return;
+            }
+            roleMod.PlayAttack();
+        }
+
         // Move
         public void Move_ApplyMove(float dt) {
             Move_Apply(inputCom.moveAxis.x, Attr_GetMoveSpeed(), dt);

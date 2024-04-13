@@ -11,7 +11,7 @@ namespace Zangeki {
             InputEntity inputEntity = ctx.inputEntity;
             ref RoleInputComponent inputCom = ref owner.inputCom;
             inputCom.moveAxis = inputEntity.moveAxis;
-            inputCom.jumpAxis = inputEntity.jumpAxis;
+            inputCom.isCasting = inputEntity.isCasting;
         }
 
     }

@@ -30,6 +30,10 @@ namespace Zangeki {
             role.Move_ApplyMove(dt);
         }
 
+        public static void ApplyCast(GameBusinessContext ctx, RoleEntity role) {
+            role.Cast_ApplyCast();
+        }
+
     }
 
 }
