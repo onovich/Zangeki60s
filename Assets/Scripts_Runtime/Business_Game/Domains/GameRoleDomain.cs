@@ -51,10 +51,13 @@ namespace Zangeki {
 
             var middleBound = map.middlePos;
             var fsm = role.FSM_GetComponent();
-            if (fsm.status == RoleFSMStatus.Idle) {
-                if (faceDir.x > 0 && role.Pos.x > middleBound.x || faceDir.x < 0 && role.Pos.x < middleBound.x) {
-                    fsm.EnterLeaving(.2f);
-                }
+            if (fsm.status == RoleFSMStatus.Leaving) {
+                return;
+            }
+
+            if (faceDir.x > 0 && role.Pos.x > middleBound.x || faceDir.x < 0 && role.Pos.x < middleBound.x) {
+                fsm.EnterLeaving(25);
+                GLog.Log($"Role {role.entityID} is leaving");
             }
             var leaveBound = faceDir.x > 0 ? map.rightBound : map.leftBound;
             if (faceDir.x > 0 && role.Pos.x > leaveBound.x || faceDir.x < 0 && role.Pos.x < leaveBound.x) {
