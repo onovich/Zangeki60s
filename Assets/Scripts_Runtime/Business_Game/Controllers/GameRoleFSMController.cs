@@ -38,7 +38,7 @@ namespace Zangeki {
             GameRoleDomain.ApplyMove(ctx, role, fixdt);
 
             // Cast
-            if (role.allyStatus == AllyStatus.Friend) {
+            if (role.allyStatus == AllyStatus.Player) {
                 GameRoleDomain.ApplyCast(ctx, role);
             } else {
                 GameRoleDomain.ApplyAutoCast(ctx, role);
@@ -66,11 +66,13 @@ namespace Zangeki {
             // Stage
             GameRoleDomain.ApplyStage(ctx, role);
 
+            // Frame
+            fsm.Casting_IncFrame();
+
             // CD
             if (role.allyStatus == AllyStatus.Enemy) {
                 return;
             }
-            fsm.Casting_IncFrame();
             if (fsm.casting_currentFrame >= fsm.casting_totalFrame) {
                 fsm.EnterIdle();
             }

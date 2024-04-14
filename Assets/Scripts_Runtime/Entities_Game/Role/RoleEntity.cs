@@ -81,7 +81,7 @@ namespace Zangeki {
         // Move
         public void Move_ApplyMove(float dt) {
             float dir = 0f;
-            if (allyStatus == AllyStatus.Friend) {
+            if (allyStatus == AllyStatus.Player) {
                 dir = inputCom.skillAxis.x;
             } else if (allyStatus == AllyStatus.Enemy) {
                 dir = faceDir.x;

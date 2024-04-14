@@ -41,7 +41,7 @@ namespace Zangeki {
         }
 
         public static void ApplyStage(GameBusinessContext ctx, RoleEntity role) {
-            if (role.allyStatus == AllyStatus.Friend) {
+            if (role.allyStatus == AllyStatus.Player) {
                 return;
             }
             var faceDir = role.faceDir;
@@ -61,7 +61,7 @@ namespace Zangeki {
         }
 
         public static void ApplyAutoCast(GameBusinessContext ctx, RoleEntity role) {
-            if (role.allyStatus == AllyStatus.Friend) {
+            if (role.allyStatus == AllyStatus.Player) {
                 return;
             }
             if (role.fsmCom.status == RoleFSMStatus.Leaving) {
