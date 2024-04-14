@@ -9,6 +9,7 @@ namespace Zangeki.UI {
 
         [SerializeField] Button restartGameBtn;
         [SerializeField] Button exitGameBtn;
+        [SerializeField] Text resultTxt;
 
         public Action OnClickRestartGameHandle;
         public Action OnClickExitGameHandle;
@@ -21,6 +22,10 @@ namespace Zangeki.UI {
             exitGameBtn.onClick.AddListener(() => {
                 OnClickExitGameHandle?.Invoke();
             });
+        }
+
+        public void SetResult(string result) {
+            resultTxt.text = result;
         }
 
         void OnDestroy() {

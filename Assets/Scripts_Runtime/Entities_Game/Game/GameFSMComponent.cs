@@ -11,6 +11,7 @@ namespace Zangeki {
         public float gaming_gameTime;
         public bool gameOver_isEntering;
         public float gameOver_enterTime;
+        public GameResult gameOver_result;
 
         public void NotInGame_Enter() {
             Reset();
@@ -29,11 +30,12 @@ namespace Zangeki {
             gaming_gameTime -= dt;
         }
 
-        public void GameOver_Enter(float enterTime) {
+        public void GameOver_Enter(float enterTime, GameResult result) {
             Reset();
             status = GameStatus.GameOver;
             gameOver_isEntering = true;
             gameOver_enterTime = enterTime;
+            gameOver_result = result;
         }
 
         public void GameOver_DecTimer(float dt) {

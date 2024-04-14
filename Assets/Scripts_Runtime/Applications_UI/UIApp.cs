@@ -34,8 +34,8 @@ namespace Zangeki {
         }
 
         // Panel - GameOver
-        public static void GameOver_Open(UIAppContext ctx) {
-            PanelGameOverDomain.Open(ctx);
+        public static void GameOver_Open(UIAppContext ctx, GameResult result) {
+            PanelGameOverDomain.Open(ctx, result);
         }
 
         public static void GameOver_Close(UIAppContext ctx) {

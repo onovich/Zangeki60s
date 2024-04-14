@@ -22,6 +22,7 @@ namespace Zangeki.UI {
         }
 
         public void RefreshHP(int hp) {
+            hpRoot.gameObject.SetActive(hp > 0);
             for (int i = 0; i < hpElements.Count; i++) {
                 hpElements[i].EnableHP(i < hp);
             }

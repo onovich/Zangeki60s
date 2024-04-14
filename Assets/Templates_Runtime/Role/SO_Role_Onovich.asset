@@ -16,7 +16,7 @@ MonoBehaviour:
   typeName: 
   allyStatus: 1
   moveSpeed: 6.5
-  attackDistance: 2.2
+  attackDistance: 2.8
   skillTotalFrame: 3
   damageFrame: 1
   leavingTotalFrame: 0

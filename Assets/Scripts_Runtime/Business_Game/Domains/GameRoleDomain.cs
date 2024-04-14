@@ -68,7 +68,6 @@ namespace Zangeki {
 
             if (faceDir.x > 0 && role.Pos.x > middleBound.x || faceDir.x < 0 && role.Pos.x < middleBound.x) {
                 fsm.EnterLeaving(roleTM.leavingTotalFrame);
-                GLog.Log($"Role {role.entityID} is leaving");
             }
             var leaveBound = faceDir.x > 0 ? map.rightBound : map.leftBound;
             if (faceDir.x > 0 && role.Pos.x > leaveBound.x || faceDir.x < 0 && role.Pos.x < leaveBound.x) {

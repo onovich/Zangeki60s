@@ -53,7 +53,7 @@ namespace Zangeki {
 
             var config = ctx.templateInfraContext.Config_Get();
             if (time <= 0) {
-                fsm.GameOver_Enter(config.gameResetEnterTime);
+                fsm.GameOver_Enter(config.gameResetEnterTime, GameResult.Win);
             }
         }
 
@@ -65,7 +65,7 @@ namespace Zangeki {
 
             var enterTime = fsm.gameOver_enterTime;
             if (enterTime <= 0) {
-                UIApp.GameOver_Open(ctx.uiContext);
+                UIApp.GameOver_Open(ctx.uiContext, fsm.gameOver_result);
             }
         }
 
@@ -81,7 +81,7 @@ namespace Zangeki {
             var game = ctx.gameEntity;
             var config = ctx.templateInfraContext.Config_Get();
             if (owner == null || owner.needTearDown) {
-                game.fsmComponent.GameOver_Enter(config.gameResetEnterTime);
+                game.fsmComponent.GameOver_Enter(config.gameResetEnterTime, GameResult.Lose);
             }
         }
 
