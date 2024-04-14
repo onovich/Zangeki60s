@@ -56,6 +56,9 @@ namespace Zangeki {
             var map = ctx.currentMapEntity;
             if (status == GameStatus.Gaming) {
 
+                // Game
+                GameGameDomain.ApplyGameTime(ctx, dt);
+
                 // Wave
                 GameWaveDomain.ApplySpawnWaveEnemies(ctx, map, dt);
 
@@ -75,11 +78,9 @@ namespace Zangeki {
         }
 
         static void FixedTick(GameBusinessContext ctx, float fixdt) {
-
             var game = ctx.gameEntity;
             var status = game.fsmComponent.status;
             if (status == GameStatus.Gaming) {
-
                 // Roles
                 var roleLen = ctx.roleRepo.TakeAll(out var roleArr);
                 for (int i = 0; i < roleLen; i++) {
@@ -88,13 +89,10 @@ namespace Zangeki {
                 }
 
                 Physics2D.Simulate(fixdt);
-
             }
-
         }
 
         static void LateTick(GameBusinessContext ctx, float dt) {
-
             var game = ctx.gameEntity;
             var status = game.fsmComponent.status;
             var owner = ctx.Role_GetOwner();
@@ -104,6 +102,8 @@ namespace Zangeki {
                 CameraApp.LateTick(ctx.cameraContext, dt);
 
                 // UI
+                UIApp.GameInfo_RefreshTime(ctx.uiContext, game.fsmComponent.gaming_gameTime);
+                UIApp.GameInfo_RefreshHP(ctx.uiContext, owner.hp);
 
             }
             // VFX

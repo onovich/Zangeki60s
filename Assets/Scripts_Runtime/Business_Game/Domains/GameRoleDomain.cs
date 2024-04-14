@@ -34,6 +34,11 @@ namespace Zangeki {
                 return;
             }
 
+            var distSqr = (target.Pos - role.Pos).sqrMagnitude;
+            if (distSqr > role.attackDistance * role.attackDistance) {
+                return;
+            }
+
             target.hp -= 1;
             GameCameraDomain.ShakeOnce(ctx);
 
@@ -55,8 +60,14 @@ namespace Zangeki {
                 return;
             }
 
+            var has = ctx.templateInfraContext.Role_TryGet(role.typeID, out var roleTM);
+            if (!has) {
+                GLog.LogError($"Role {role.entityID} has no template");
+                return;
+            }
+
             if (faceDir.x > 0 && role.Pos.x > middleBound.x || faceDir.x < 0 && role.Pos.x < middleBound.x) {
-                fsm.EnterLeaving(25);
+                fsm.EnterLeaving(roleTM.leavingTotalFrame);
                 GLog.Log($"Role {role.entityID} is leaving");
             }
             var leaveBound = faceDir.x > 0 ? map.rightBound : map.leftBound;

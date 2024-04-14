@@ -12,7 +12,7 @@ namespace Zangeki {
 
             // Game
             var game = ctx.gameEntity;
-            game.fsmComponent.Gaming_Enter();
+            game.fsmComponent.Gaming_Enter(config.gameTotalTime);
 
             // Map
             var mapTypeID = config.originalMapTypeID;
@@ -38,9 +38,23 @@ namespace Zangeki {
             CameraApp.Init(ctx.cameraContext, owner.transform, Vector2.zero, mapTM.cameraConfinerWorldMax, mapTM.cameraConfinerWorldMin);
 
             // UI
+            UIApp.GameInfo_Open(ctx.uiContext, owner.hpMax);
 
             // Cursor
 
+        }
+
+        public static void ApplyGameTime(GameBusinessContext ctx, float dt) {
+            var game = ctx.gameEntity;
+            var fsm = game.fsmComponent;
+
+            fsm.Gaming_DecTimer(dt);
+            var time = fsm.gaming_gameTime;
+
+            var config = ctx.templateInfraContext.Config_Get();
+            if (time <= 0) {
+                fsm.GameOver_Enter(config.gameResetEnterTime);
+            }
         }
 
         public static void ApplyGameOver(GameBusinessContext ctx, float dt) {
@@ -60,7 +74,6 @@ namespace Zangeki {
             var fsm = game.fsmComponent;
             ExitGame(ctx);
             NewGame(ctx);
-            fsm.Gaming_Enter();
         }
 
         public static void ApplyGameResult(GameBusinessContext ctx) {
@@ -89,7 +102,8 @@ namespace Zangeki {
 
             // UI
             UIApp.GameOver_Close(ctx.uiContext);
-            
+            UIApp.GameInfo_Close(ctx.uiContext);
+
         }
 
     }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SO_GameConfig
   m_EditorClassIdentifier: 
   gameResetEnterTime: 1
+  gameTotalTime: 60
   ownerRoleTypeID: 1
   originalMapTypeID: 1
   cameraDeadZoneNormalizedSize: {x: 0, y: 0}

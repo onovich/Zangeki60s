@@ -42,6 +42,23 @@ namespace Zangeki {
             PanelGameOverDomain.Close(ctx);
         }
 
+        // Panel - GameInfo
+        public static void GameInfo_Open(UIAppContext ctx, int hpMax) {
+            PanelGameInfoDomain.Open(ctx, hpMax);
+        }
+
+        public static void GameInfo_RefreshHP(UIAppContext ctx, int hp) {
+            PanelGameInfoDomain.RefreshHP(ctx, hp);
+        }
+
+        public static void GameInfo_RefreshTime(UIAppContext ctx, float time) {
+            PanelGameInfoDomain.RefreshTime(ctx, time);
+        }
+
+        public static void GameInfo_Close(UIAppContext ctx) {
+            PanelGameInfoDomain.Close(ctx);
+        }
+
     }
 
 }

@@ -10,6 +10,7 @@ namespace Zangeki {
         // Game
         [Header("Game Config")]
         public float gameResetEnterTime;
+        public float gameTotalTime;
 
         // Role
         [Header("Role Config")]

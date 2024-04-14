@@ -67,6 +67,8 @@ namespace Zangeki {
             role.hpMax = roleTM.hpMax;
             role.hp = role.hpMax;
             role.typeName = roleTM.typeName;
+            role.damageFrame = roleTM.damageFrame;
+            role.skillTotalFrame = roleTM.skillTotalFrame;
 
             // Rename
             role.gameObject.name = $"{role.typeName} - {role.entityID}";
