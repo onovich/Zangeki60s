@@ -17,7 +17,7 @@ MonoBehaviour:
   allyStatus: 1
   moveSpeed: 6.5
   attackDistance: 2.8
-  skillTotalFrame: 3
+  skillTotalFrame: 40
   damageFrame: 1
   leavingTotalFrame: 0
   hpMax: 3
