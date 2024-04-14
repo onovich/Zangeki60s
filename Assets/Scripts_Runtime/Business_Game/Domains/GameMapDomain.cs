@@ -1,6 +1,3 @@
-using UnityEngine;
-using UnityEngine.Tilemaps;
-
 namespace Zangeki {
 
     public static class GameMapDomain {

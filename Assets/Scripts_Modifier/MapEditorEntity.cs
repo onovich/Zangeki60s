@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
 using TriInspector;
@@ -16,12 +17,8 @@ namespace Zangeki.Modifier {
         [SerializeField] WaveTM rightWaveTM;
         [SerializeField] Transform pointGroup;
 
-        IndexService indexService;
-
         [Button("Bake")]
         void Bake() {
-            indexService = new IndexService();
-            indexService.ResetIndex();
             BakeMapInfo();
             BakeSpawnPoint();
 
@@ -58,3 +55,4 @@ namespace Zangeki.Modifier {
     }
 
 }
+#endif

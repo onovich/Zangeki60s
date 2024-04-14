@@ -1,5 +1,3 @@
-using MortiseFrame.Swing;
-using TenonKit.Prism;
 using UnityEngine;
 
 namespace Zangeki {

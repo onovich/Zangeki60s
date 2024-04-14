@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 
 namespace Zangeki.Modifier {
@@ -29,3 +30,4 @@ namespace Zangeki.Modifier {
     }
 
 }
+#endif
