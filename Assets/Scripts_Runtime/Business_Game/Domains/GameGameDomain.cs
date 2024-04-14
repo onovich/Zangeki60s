@@ -44,7 +44,6 @@ namespace Zangeki {
         }
 
         public static void ApplyRestartGame(GameBusinessContext ctx) {
-
             var spawnPoint = ctx.ownerSpawnPoint;
             var game = ctx.gameEntity;
             var enterTime = game.fsmComponent.gameOver_enterTime;
@@ -52,13 +51,10 @@ namespace Zangeki {
 
             if (gameOver_isEntering) {
                 game.fsmComponent.gameOver_isEntering = false;
-                CameraApp.SetMoveToTarget(ctx.cameraContext, spawnPoint, enterTime, EasingType.Linear, EasingMode.None, onComplete: () => {
-                    ExitGame(ctx);
-                    NewGame(ctx);
-                    game.fsmComponent.Gaming_Enter();
-                });
+                ExitGame(ctx);
+                NewGame(ctx);
+                game.fsmComponent.Gaming_Enter();
             }
-
         }
 
         public static void ApplyGameResult(GameBusinessContext ctx) {

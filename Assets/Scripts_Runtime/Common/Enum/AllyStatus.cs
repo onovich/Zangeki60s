@@ -9,7 +9,6 @@ namespace Zangeki {
     }
 
     public static class AllyStatusExtension {
-
         public static AllyStatus GetOpposite(this AllyStatus status) {
             if (status == AllyStatus.Friend) {
                 return AllyStatus.Enemy;

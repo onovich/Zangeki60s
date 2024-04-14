@@ -98,7 +98,7 @@ namespace Zangeki {
             var game = ctx.gameEntity;
             var status = game.fsmComponent.status;
             var owner = ctx.Role_GetOwner();
-            if (status == GameStatus.Gaming || status == GameStatus.GameOver) {
+            if (status == GameStatus.Gaming) {
 
                 // Camera
                 CameraApp.LateTick(ctx.cameraContext, dt);

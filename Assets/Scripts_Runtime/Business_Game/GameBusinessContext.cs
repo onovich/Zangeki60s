@@ -67,6 +67,25 @@ namespace Zangeki {
             roleRepo.ForEach(onAction);
         }
 
+        public RoleEntity Role_GetNearestEnemy(RoleEntity role) {
+            RoleEntity nearest = null;
+            var minDistance = float.MaxValue;
+            var rolePos = role.Pos;
+            roleRepo.ForEach((r) => {
+                if (Vector2.Dot(r.faceDir, role.faceDir) >= 0) {
+                    return;
+                }
+                if (r.allyStatus == role.allyStatus.GetOpposite()) {
+                    var distance = Vector2.Distance(rolePos, r.Pos);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        nearest = r;
+                    }
+                }
+            });
+            return nearest;
+        }
+
         // Block
         public void Block_ForEach(Action<BlockEntity> onAction) {
             blockRepo.ForEach(onAction);

@@ -7,13 +7,17 @@ namespace Zangeki {
     public class RoleTM : ScriptableObject {
 
         public int typeID;
+        public string typeName;
         public AllyStatus allyStatus;
         public float moveSpeed;
         public float attackDistance;
-        public float attackCD;
+        public int skillTotalFrame;
+        public int damageFrame;
+        public int hpMax;
         public RoleMod mod;
         public GameObject deadVFX;
         public float deadVFXDuration;
+        
     }
 
 }

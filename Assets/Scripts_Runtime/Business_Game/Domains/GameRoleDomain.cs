@@ -22,6 +22,24 @@ namespace Zangeki {
             }
         }
 
+        public static void ApplyDamage(GameBusinessContext ctx, RoleEntity role) {
+            RoleEntity target;
+            if (role.allyStatus == AllyStatus.Enemy) {
+                target = ctx.Role_GetOwner();
+            } else {
+                target = ctx.Role_GetNearestEnemy(role);
+            }
+
+            if (target == null) {
+                return;
+            }
+
+            target.hp -= 1;
+            if (target.hp <= 0) {
+                target.FSM_EnterDead();
+            }
+        }
+
         public static void ApplyStage(GameBusinessContext ctx, RoleEntity role) {
             if (role.allyStatus == AllyStatus.Friend) {
                 return;

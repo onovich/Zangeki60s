@@ -8,6 +8,7 @@ namespace Zangeki {
         // Base Info
         public int entityID;
         public int typeID;
+        public string typeName;
         public AllyStatus allyStatus;
 
         // Attr
@@ -15,7 +16,12 @@ namespace Zangeki {
         public Vector2 Velocity => rb.velocity;
         public Vector2 faceDir;
         public float attackDistance;
-        public float attackCD;
+        public int hpMax;
+        public int hp;
+        
+        // Skill
+        public int skillTotalFrame;
+        public int damageFrame;
 
         // State
         public bool needTearDown;
@@ -69,7 +75,7 @@ namespace Zangeki {
 
         public void Cast() {
             roleMod.PlayAttack();
-            fsmCom.EnterCasting(attackCD);
+            fsmCom.EnterCasting(skillTotalFrame, damageFrame);
         }
 
         // Move

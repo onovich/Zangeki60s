@@ -64,7 +64,12 @@ namespace Zangeki {
             // Set Attr
             role.moveSpeed = roleTM.moveSpeed;
             role.attackDistance = roleTM.attackDistance;
-            role.attackCD = roleTM.attackCD;
+            role.hpMax = roleTM.hpMax;
+            role.hp = role.hpMax;
+            role.typeName = roleTM.typeName;
+
+            // Rename
+            role.gameObject.name = $"{role.typeName} - {role.entityID}";
 
             // Set Pos
             role.Pos_SetPos(pos);

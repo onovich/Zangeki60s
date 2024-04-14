@@ -58,6 +58,11 @@ namespace Zangeki {
             // Move
             GameRoleDomain.ApplyMove(ctx, role, fixdt);
 
+            // Damage
+            if (fsm.casting_currentFrame == fsm.casting_damageFrame) {
+                GameRoleDomain.ApplyDamage(ctx, role);
+            }
+
             // Stage
             GameRoleDomain.ApplyStage(ctx, role);
 
@@ -65,8 +70,8 @@ namespace Zangeki {
             if (role.allyStatus == AllyStatus.Enemy) {
                 return;
             }
-            fsm.Casting_IncTimer(fixdt);
-            if (fsm.casting_currentTimer >= fsm.casting_duration) {
+            fsm.Casting_IncFrame();
+            if (fsm.casting_currentFrame >= fsm.casting_totalFrame) {
                 fsm.EnterIdle();
             }
         }
@@ -86,14 +91,14 @@ namespace Zangeki {
             // Leaving
             var startAlpha = 1.0f;
             var endAlpha = 0.0f;
-            var duration = fsm.leaving_duration;
-            var current = fsm.leaving_currentTimer;
+            var duration = fsm.leaving_totalFrame;
+            var current = fsm.leaving_currentFrame;
             if (current >= duration) {
                 return;
             }
             var alpha = EasingHelper.Easing(startAlpha, endAlpha, current, duration, EasingType.Linear);
             role.Color_SetAlpha(alpha);
-            fsm.Leaving_IncTimer(fixdt);
+            fsm.Leaving_IncFrame();
         }
 
         static void FixedTickFSM_Dead(GameBusinessContext ctx, RoleEntity role, float fixdt) {
