@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f5d82af3851c4b68afd41b219842ea4
+    m_Address: Panel_GameOver
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bcda1c8e574105f42bf63fc8b4423c66, type: 2}
   m_SchemaSet:

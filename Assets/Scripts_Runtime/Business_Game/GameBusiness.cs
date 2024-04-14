@@ -70,7 +70,7 @@ namespace Zangeki {
                 GameGameDomain.ApplyGameResult(ctx);
             }
             if (status == GameStatus.GameOver) {
-                GameGameDomain.ApplyRestartGame(ctx, dt);
+                GameGameDomain.ApplyGameOver(ctx, dt);
             }
         }
 
@@ -129,6 +129,16 @@ namespace Zangeki {
                     CameraApp.OnDrawGizmos(ctx.cameraContext);
                 }
             }
+        }
+
+        // UI
+        public static void UIGameOver_OnRestartGame(GameBusinessContext ctx) {
+            UIApp.GameOver_Close(ctx.uiContext);
+            GameGameDomain.RestartGame(ctx);
+        }
+
+        public static void UIGameOver_OnExitGameClick(GameBusinessContext ctx) {
+            ExitGame(ctx);
         }
 
     }

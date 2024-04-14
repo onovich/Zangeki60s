@@ -43,20 +43,24 @@ namespace Zangeki {
 
         }
 
-        public static void ApplyRestartGame(GameBusinessContext ctx, float dt) {
+        public static void ApplyGameOver(GameBusinessContext ctx, float dt) {
             var game = ctx.gameEntity;
             var fsm = game.fsmComponent;
-            var gameOver_isEntering = fsm.gameOver_isEntering;
 
             fsm.GameOver_DecTimer(dt);
 
             var enterTime = fsm.gameOver_enterTime;
             if (enterTime <= 0) {
-                game.fsmComponent.gameOver_isEntering = false;
-                ExitGame(ctx);
-                NewGame(ctx);
-                game.fsmComponent.Gaming_Enter();
+                UIApp.GameOver_Open(ctx.uiContext);
             }
+        }
+
+        public static void RestartGame(GameBusinessContext ctx) {
+            var game = ctx.gameEntity;
+            var fsm = game.fsmComponent;
+            ExitGame(ctx);
+            NewGame(ctx);
+            fsm.Gaming_Enter();
         }
 
         public static void ApplyGameResult(GameBusinessContext ctx) {

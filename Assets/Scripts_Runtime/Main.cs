@@ -129,6 +129,15 @@ namespace Zangeki {
                 LoginBusiness.ExitApplication(loginBusinessContext);
             };
 
+            // - GameOver
+            uiEvt.GameOver_OnRestartGameClickHandle += () => {
+                GameBusiness.UIGameOver_OnRestartGame(gameBusinessContext);
+            };
+
+            uiEvt.GameOver_OnExitGameClickHandle += () => {
+                GameBusiness.UIGameOver_OnExitGameClick(gameBusinessContext);
+            };
+
         }
 
         async Task LoadAssets() {

@@ -15,6 +15,17 @@ namespace Zangeki.UI {
             Login_OnExitGameClickHandle?.Invoke();
         }
 
+        // GameOver
+        public Action GameOver_OnRestartGameClickHandle;
+        public void GameOver_OnRestartGameClick() {
+            GameOver_OnRestartGameClickHandle?.Invoke();
+        }
+
+        public Action GameOver_OnExitGameClickHandle;
+        public void GameOver_OnExitGameClick() {
+            GameOver_OnExitGameClickHandle?.Invoke();
+        }
+
         // Inventory
         public Action<int> Inventory_OnLeftClickTreasureHandle;
         public void Inventory_OnLeftClickTreasure(int index) {
@@ -40,6 +51,9 @@ namespace Zangeki.UI {
         public void Clear() {
             Login_OnStartGameClickHandle = null;
             Login_OnExitGameClickHandle = null;
+
+            GameOver_OnRestartGameClickHandle = null;
+            GameOver_OnExitGameClickHandle = null;
 
             Inventory_OnLeftClickTreasureHandle = null;
             Inventory_OnRightClickTreasureHandle = null;

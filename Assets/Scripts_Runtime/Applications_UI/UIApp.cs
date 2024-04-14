@@ -33,6 +33,15 @@ namespace Zangeki {
             PanelLoginDomain.Close(ctx);
         }
 
+        // Panel - GameOver
+        public static void GameOver_Open(UIAppContext ctx) {
+            PanelGameOverDomain.Open(ctx);
+        }
+
+        public static void GameOver_Close(UIAppContext ctx) {
+            PanelGameOverDomain.Close(ctx);
+        }
+
     }
 
 }
