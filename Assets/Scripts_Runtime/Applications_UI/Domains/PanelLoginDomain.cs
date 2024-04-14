@@ -22,6 +22,10 @@ namespace Zangeki.UI {
         }
 
         public static void Close(UIAppContext ctx) {
+            var has = ctx.UniquePanel_TryGet<Panel_Login>(out var panel);
+            if (!has) {
+                return;
+            }
             ctx.uiCore.UniquePanel_Close<Panel_Login>();
         }
 

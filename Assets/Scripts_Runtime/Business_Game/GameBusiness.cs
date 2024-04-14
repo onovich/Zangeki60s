@@ -139,6 +139,8 @@ namespace Zangeki {
 
         public static void UIGameOver_OnExitGameClick(GameBusinessContext ctx) {
             ExitGame(ctx);
+            Application.Quit();
+            GLog.Log("Application.Quit");
         }
 
     }

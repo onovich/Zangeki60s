@@ -88,6 +88,8 @@ namespace Zangeki {
             }
 
             // UI
+            UIApp.GameOver_Close(ctx.uiContext);
+            
         }
 
     }
