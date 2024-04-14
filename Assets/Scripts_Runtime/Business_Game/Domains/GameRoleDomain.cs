@@ -35,6 +35,8 @@ namespace Zangeki {
             }
 
             target.hp -= 1;
+            GameCameraDomain.ShakeOnce(ctx);
+
             if (target.hp <= 0) {
                 target.FSM_EnterDead();
             }

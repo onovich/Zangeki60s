@@ -18,13 +18,7 @@ namespace Zangeki {
             ctx.cameraCore.Tick(dt);
         }
 
-        public static void ShakeOnce(CameraAppContext ctx, int cameraID) {
-            var config = ctx.templateInfraContext.Config_Get();
-            var shakeFrequency = config.roleDeadShakeFrequency;
-            var shakeAmplitude = config.roleDeadShakeAmplitude;
-            var shakeDuration = config.roleDeadShakeDuration;
-            var shakeEasingType = config.roleDeadShakeEasingType;
-            var shakeEasingMode = config.roleDeadShakeEasingMode;
+        public static void ShakeOnce(CameraAppContext ctx, int cameraID, float shakeFrequency, float shakeAmplitude, float shakeDuration, EasingType shakeEasingType, EasingMode shakeEasingMode) {
             ctx.cameraCore.ShakeOnce(cameraID, shakeFrequency, shakeAmplitude, shakeDuration, shakeEasingType, shakeEasingMode);
         }
 

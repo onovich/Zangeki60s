@@ -21,11 +21,11 @@ namespace Zangeki {
         public Vector2 cameraDeadZoneNormalizedSize;
 
         [Header("Shake Config")]
-        public float roleDeadShakeFrequency;
-        public float roleDeadShakeAmplitude;
-        public float roleDeadShakeDuration;
-        public EasingType roleDeadShakeEasingType;
-        public EasingMode roleDeadShakeEasingMode;
+        public float cameraShakeFrequency_roleDamage;
+        public float cameraShakeAmplitude_roleDamage;
+        public float cameraShakeDuration_roleDamage;
+        public EasingType cameraShakeEasingType_roleDamage;
+        public EasingMode cameraShakeEasingMode_roleDamage;
 
     }
 
