@@ -70,7 +70,7 @@ namespace Zangeki {
                 GameGameDomain.ApplyGameResult(ctx);
             }
             if (status == GameStatus.GameOver) {
-                GameGameDomain.ApplyRestartGame(ctx);
+                GameGameDomain.ApplyRestartGame(ctx, dt);
             }
         }
 

@@ -43,13 +43,15 @@ namespace Zangeki {
 
         }
 
-        public static void ApplyRestartGame(GameBusinessContext ctx) {
-            var spawnPoint = ctx.ownerSpawnPoint;
+        public static void ApplyRestartGame(GameBusinessContext ctx, float dt) {
             var game = ctx.gameEntity;
-            var enterTime = game.fsmComponent.gameOver_enterTime;
-            var gameOver_isEntering = game.fsmComponent.gameOver_isEntering;
+            var fsm = game.fsmComponent;
+            var gameOver_isEntering = fsm.gameOver_isEntering;
 
-            if (gameOver_isEntering) {
+            fsm.GameOver_DecTimer(dt);
+
+            var enterTime = fsm.gameOver_enterTime;
+            if (enterTime <= 0) {
                 game.fsmComponent.gameOver_isEntering = false;
                 ExitGame(ctx);
                 NewGame(ctx);

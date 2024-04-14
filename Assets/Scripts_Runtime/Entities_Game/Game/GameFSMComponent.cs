@@ -30,7 +30,11 @@ namespace Zangeki {
             gameOver_enterTime = enterTime;
         }
 
-        public void Reset(){
+        public void GameOver_DecTimer(float dt) {
+            gameOver_enterTime -= dt;
+        }
+
+        public void Reset() {
             notInGame_isEntering = false;
             gaming_isEntering = false;
             gameOver_isEntering = false;

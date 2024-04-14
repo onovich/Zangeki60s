@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb11335240b544e63abb305dccd0a418, type: 3}
   m_Name: SO_GameConfig
   m_EditorClassIdentifier: 
-  gameResetEnterTime: 0.5
+  gameResetEnterTime: 2
   ownerRoleTypeID: 1
   originalMapTypeID: 1
   cameraDeadZoneNormalizedSize: {x: 0, y: 0}
