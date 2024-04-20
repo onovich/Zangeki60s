@@ -8,9 +8,10 @@ namespace Zangeki.UI {
     public class Panel_RoleHPElement : MonoBehaviour {
 
         [SerializeField] Image hp;
+        [SerializeField] Animator anim;
 
-        public void EnableHP(bool enable) {
-            hp.enabled = enable;
+        public void Anim_PlayHurt() {
+            anim.Play("Hurt");
         }
 
     }

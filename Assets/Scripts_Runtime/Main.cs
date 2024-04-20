@@ -36,6 +36,8 @@ namespace Zangeki {
             Camera mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
             Transform vfxRoot = GameObject.Find("VFXRoot").transform;
 
+            mainCamera.orthographicSize = (Screen.height / 2f) / 32f;
+
             inputEntity = new InputEntity();
 
             loginBusinessContext = new LoginBusinessContext();

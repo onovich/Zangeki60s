@@ -42,6 +42,10 @@ namespace Zangeki {
             target.hp -= 1;
             GameCameraDomain.ShakeOnce(ctx);
 
+            if (target.allyStatus == AllyStatus.Player) {
+                UIApp.GameInfo_PlayHurtAnim(ctx.uiContext, target.hp);
+            }
+
             if (target.hp <= 0) {
                 target.FSM_EnterDead();
             }

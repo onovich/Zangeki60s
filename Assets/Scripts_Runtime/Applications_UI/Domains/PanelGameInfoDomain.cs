@@ -14,15 +14,14 @@ namespace Zangeki.UI {
 
             panel = ctx.uiCore.UniquePanel_Open<Panel_GameInfo>();
             panel.Ctor(hpMax);
-            panel.RefreshHP(hpMax);
         }
 
-        public static void RefreshHP(UIAppContext ctx, int hp) {
+        public static void Anim_PlayHurt(UIAppContext ctx, int hp) {
             var has = ctx.UniquePanel_TryGet<Panel_GameInfo>(out var panel);
             if (!has) {
                 return;
             }
-            panel.RefreshHP(hp);
+            panel.Anim_PlayHurt(hp);
         }
 
         public static void RefreshTime(UIAppContext ctx, float time) {

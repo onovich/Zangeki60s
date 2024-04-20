@@ -48,8 +48,8 @@ namespace Zangeki {
             PanelGameInfoDomain.Open(ctx, hpMax);
         }
 
-        public static void GameInfo_RefreshHP(UIAppContext ctx, int hp) {
-            PanelGameInfoDomain.RefreshHP(ctx, hp);
+        public static void GameInfo_PlayHurtAnim(UIAppContext ctx, int hp) {
+            PanelGameInfoDomain.Anim_PlayHurt(ctx, hp);
         }
 
         public static void GameInfo_RefreshTime(UIAppContext ctx, float time) {

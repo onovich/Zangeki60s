@@ -21,11 +21,8 @@ namespace Zangeki.UI {
             }
         }
 
-        public void RefreshHP(int hp) {
-            hpRoot.gameObject.SetActive(hp > 0);
-            for (int i = 0; i < hpElements.Count; i++) {
-                hpElements[i].EnableHP(i < hp);
-            }
+        public void Anim_PlayHurt(int hp) {
+            hpElements[hp].Anim_PlayHurt();
         }
 
         public void RefreshTime(float time) {
