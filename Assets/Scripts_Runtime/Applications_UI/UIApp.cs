@@ -22,6 +22,7 @@ namespace Zangeki {
         // Tick
         public static void LateTick(UIAppContext ctx, float dt) {
             ctx.uiCore.LateTick(dt);
+            PanelLoginDomain.Tick(ctx, dt);
         }
 
         // Panel - Login

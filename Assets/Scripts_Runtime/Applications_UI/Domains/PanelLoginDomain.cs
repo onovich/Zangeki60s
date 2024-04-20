@@ -21,6 +21,14 @@ namespace Zangeki.UI {
 
         }
 
+        public static void Tick(UIAppContext ctx, float dt) {
+            var has = ctx.UniquePanel_TryGet<Panel_Login>(out var panel);
+            if (!has) {
+                return;
+            }
+            panel.Tick(dt);
+        }
+
         public static void Close(UIAppContext ctx) {
             var has = ctx.UniquePanel_TryGet<Panel_Login>(out var panel);
             if (!has) {
