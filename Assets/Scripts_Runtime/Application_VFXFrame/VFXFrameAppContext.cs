@@ -10,8 +10,8 @@ namespace Zangeki {
         // Core
         public VFXFrameCore vfxFrameCore;
 
-        public VFXFrameAppContext(string label, Transform root) {
-            vfxFrameCore = new VFXFrameCore(label, root);
+        public VFXFrameAppContext(Transform root) {
+            vfxFrameCore = new VFXFrameCore(root);
         }
 
     }

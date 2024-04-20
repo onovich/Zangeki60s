@@ -12,14 +12,6 @@ namespace Zangeki {
 
         }
 
-        public static async Task LoadAssets(VFXFrameAppContext ctx) {
-            try {
-                await ctx.vfxFrameCore.LoadAssets();
-            } catch (Exception e) {
-                GLog.LogError(e.ToString());
-            }
-        }
-
         public static void LateTick(VFXFrameAppContext ctx, float dt) {
             ctx.vfxFrameCore.Tick(dt);
         }
