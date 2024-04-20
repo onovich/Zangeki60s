@@ -35,7 +35,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b2346fe83496f541739415a57ee583b50e82c04a"
+      "hash": "689875ef11ffd779a44a53e76839bd2628bd6fbe"
     },
     "com.tenon.vista.camera2d": {
       "version": "ssh://git@github.com/onovich/Vista.git?path=/Assets/com.tenon.vista.camera2d#main",
