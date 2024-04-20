@@ -97,7 +97,7 @@ MonoBehaviour:
     - default
     - UI
     - Entity
-    - VFX
+    - VFX_Particel
     - TM_Config
     - TM_Role
     - TM_Block

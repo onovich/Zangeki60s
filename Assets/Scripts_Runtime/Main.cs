@@ -20,7 +20,7 @@ namespace Zangeki {
         GameBusinessContext gameBusinessContext;
 
         UIAppContext uiAppContext;
-        VFXAppContext vfxAppContext;
+        VFXParticelAppContext vfxAppContext;
         CameraAppContext cameraAppContext;
 
         bool isLoadedAssets;
@@ -44,7 +44,7 @@ namespace Zangeki {
             gameBusinessContext = new GameBusinessContext();
 
             uiAppContext = new UIAppContext("UI", mainCanvas, hudFakeCanvas, mainCamera);
-            vfxAppContext = new VFXAppContext("VFX", vfxRoot);
+            vfxAppContext = new VFXParticelAppContext("VFX_Particel", vfxRoot);
             cameraAppContext = new CameraAppContext(mainCamera, new Vector2(Screen.width, Screen.height));
 
             assetsInfraContext = new AssetsInfraContext();
@@ -113,7 +113,7 @@ namespace Zangeki {
             GameBusiness.Init(gameBusinessContext);
 
             UIApp.Init(uiAppContext);
-            VFXApp.Init(vfxAppContext);
+            VFXParticelApp.Init(vfxAppContext);
 
         }
 
@@ -144,7 +144,7 @@ namespace Zangeki {
 
         async Task LoadAssets() {
             await UIApp.LoadAssets(uiAppContext);
-            await VFXApp.LoadAssets(vfxAppContext);
+            await VFXParticelApp.LoadAssets(vfxAppContext);
             await AssetsInfra.LoadAssets(assetsInfraContext);
             await TemplateInfra.LoadAssets(templateInfraContext);
         }

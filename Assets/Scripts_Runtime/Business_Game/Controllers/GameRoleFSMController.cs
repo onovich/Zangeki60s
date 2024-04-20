@@ -110,7 +110,7 @@ namespace Zangeki {
             }
 
             // VFX
-            VFXApp.AddVFXToWorld(ctx.vfxContext, role.deadVFXName, role.deadVFXDuration, role.Pos);
+            VFXParticelApp.AddVFXToWorld(ctx.vfxContext, role.deadVFXName, role.deadVFXDuration, role.Pos);
 
             // Camera
             GameCameraDomain.ShakeOnce(ctx);

@@ -106,7 +106,7 @@ namespace Zangeki {
 
             }
             // VFX
-            VFXApp.LateTick(ctx.vfxContext, dt);
+            VFXParticelApp.LateTick(ctx.vfxContext, dt);
         }
 
         public static void TearDown(GameBusinessContext ctx) {
