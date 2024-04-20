@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SO_Role_Samurai
   m_EditorClassIdentifier: 
   typeID: 2
-  typeName: 
+  typeName: Samurai
   allyStatus: 2
   moveSpeed: 6.5
   attackDistance: 2

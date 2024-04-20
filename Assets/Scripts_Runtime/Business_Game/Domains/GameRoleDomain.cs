@@ -44,6 +44,7 @@ namespace Zangeki {
 
             if (target.allyStatus == AllyStatus.Player) {
                 UIApp.GameInfo_PlayHurtAnim(ctx.uiContext, target.hp);
+                target.RoleMod.PlayHit();
             }
 
             if (target.hp <= 0) {

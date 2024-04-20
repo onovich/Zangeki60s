@@ -35,6 +35,7 @@ namespace Zangeki {
         // Render
         [SerializeField] public Transform body;
         RoleMod roleMod;
+        public RoleMod RoleMod => roleMod;
 
         // VFX
         public string deadVFXName;
@@ -139,27 +140,6 @@ namespace Zangeki {
         // Mod
         public void Mod_Set(RoleMod mod) {
             roleMod = mod;
-        }
-
-        // Anim
-        public void Anim_PlayIdle() {
-            roleMod.PlayIdle();
-        }
-
-        public void Anim_PlayAttack() {
-            roleMod.PlayAttack1();
-        }
-
-        public void Anim_PlayAttackFail() {
-            roleMod.PlayBatFail();
-        }
-
-        public void Anim_PlayHurt() {
-            roleMod.PlayHit();
-        }
-
-        public void Anim_SetMovement(float speed) {
-            roleMod.Anim_SetMovement(speed);
         }
 
         // VFX
