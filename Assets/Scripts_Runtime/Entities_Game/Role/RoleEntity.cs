@@ -74,7 +74,7 @@ namespace Zangeki {
         }
 
         public void Cast() {
-            roleMod.PlayAttack();
+            roleMod.PlayAttack1();
             fsmCom.EnterCasting(skillTotalFrame, damageFrame);
         }
 
@@ -147,15 +147,15 @@ namespace Zangeki {
         }
 
         public void Anim_PlayAttack() {
-            roleMod.PlayAttack();
+            roleMod.PlayAttack1();
         }
 
         public void Anim_PlayAttackFail() {
-            roleMod.PlayAttackFail();
+            roleMod.PlayBatFail();
         }
 
         public void Anim_PlayHurt() {
-            roleMod.PlayHurt();
+            roleMod.PlayHit();
         }
 
         public void Anim_SetMovement(float speed) {

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Anim_Role_Zatoichi_Attack_Fail
+  m_Name: Anim_Role_Samurai_Attack1
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: b6bcc17d097804dc39e011a6dcf5add6, type: 3}
+      value: {fileID: 21300000, guid: 485e4c34c07a14b019a67587a82a3660, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: a680dba0686154c32bfd2f18d4efae7b, type: 3}
+      value: {fileID: 21300000, guid: c4220a3fdfc3044e0bfdd04fd3067781, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 0d5a04b6542084664a4a1683e6303679, type: 3}
+      value: {fileID: 21300000, guid: 46d05b5a2e14f4324bc5dacb38779133, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 9ed4235baffae491483764654dc440aa, type: 3}
+      value: {fileID: 21300000, guid: 163bda83d11ec444abcd2e06d2290373, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,10 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: b6bcc17d097804dc39e011a6dcf5add6, type: 3}
-    - {fileID: 21300000, guid: a680dba0686154c32bfd2f18d4efae7b, type: 3}
-    - {fileID: 21300000, guid: 0d5a04b6542084664a4a1683e6303679, type: 3}
-    - {fileID: 21300000, guid: 9ed4235baffae491483764654dc440aa, type: 3}
+    - {fileID: 21300000, guid: 485e4c34c07a14b019a67587a82a3660, type: 3}
+    - {fileID: 21300000, guid: c4220a3fdfc3044e0bfdd04fd3067781, type: 3}
+    - {fileID: 21300000, guid: 46d05b5a2e14f4324bc5dacb38779133, type: 3}
+    - {fileID: 21300000, guid: 163bda83d11ec444abcd2e06d2290373, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

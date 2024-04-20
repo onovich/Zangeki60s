@@ -20,16 +20,24 @@ namespace Zangeki {
             anim.Play("Idle");
         }
 
-        public void PlayAttack() {
-            anim.Play("Attack");
+        public void PlayAttack1() {
+            anim.Play("Attack1");
         }
 
-        public void PlayAttackFail() {
-            anim.Play("Attack_Fail");
+        public void PlayAttack2() {
+            anim.Play("Attack2");
         }
 
-        public void PlayHurt() {
-            anim.Play("Hurt");
+        public void PlayBatFail() {
+            anim.Play("Bat_Fail");
+        }
+
+        public void PlayBat() {
+            anim.Play("Bat");
+        }
+
+        public void PlayHit() {
+            anim.Play("Hit");
         }
 
         public void Anim_SetMovement(float speed) {
