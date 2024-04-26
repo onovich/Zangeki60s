@@ -75,7 +75,7 @@ namespace Zangeki {
         }
 
         public void Cast() {
-            roleMod.PlayAttack1();
+            roleMod.PlayAttack();
             fsmCom.EnterCasting(skillTotalFrame, damageFrame);
         }
 

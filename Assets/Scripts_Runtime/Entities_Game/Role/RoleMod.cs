@@ -8,6 +8,8 @@ namespace Zangeki {
         [SerializeField] SpriteRenderer spr;
         [SerializeField] Animator anim;
 
+        int attackIndex;
+
         public void SetSprite(Sprite sprite) {
             spr.sprite = sprite;
         }
@@ -18,6 +20,16 @@ namespace Zangeki {
 
         public void PlayIdle() {
             anim.Play("Idle");
+        }
+
+        public void PlayAttack() {
+            if (attackIndex == 0) {
+                PlayAttack1();
+                attackIndex = 1;
+            } else {
+                PlayAttack2();
+                attackIndex = 0;
+            }
         }
 
         public void PlayAttack1() {
