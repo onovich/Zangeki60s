@@ -7,7 +7,9 @@ namespace Zangeki {
     [CreateAssetMenu(fileName = "TM_FrameVFX", menuName = "Zangeki/FrameVFXTM")]
     public class FrameVFXTM : ScriptableObject {
 
-        [Header("Tap_Left")]
+        public float intervalTime;
+
+        [Header("Tap")]
         public Sprite[] tap_left_frame;
         public Sprite[] tap_right_frame;
 

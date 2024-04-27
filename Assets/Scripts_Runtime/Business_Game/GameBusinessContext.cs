@@ -18,7 +18,8 @@ namespace Zangeki {
 
         // App
         public UIAppContext uiContext;
-        public VFXParticelAppContext vfxContext;
+        public VFXParticelAppContext vfxParticelContext;
+        public VFXFrameAppContext vfxFrameContext;
         public CameraAppContext cameraContext;
 
         // Camera

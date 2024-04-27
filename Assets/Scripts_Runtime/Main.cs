@@ -20,7 +20,8 @@ namespace Zangeki {
         GameBusinessContext gameBusinessContext;
 
         UIAppContext uiAppContext;
-        VFXParticelAppContext vfxAppContext;
+        VFXParticelAppContext vfxParticelAppContext;
+        VFXFrameAppContext vfxFrameAppContext;
         CameraAppContext cameraAppContext;
 
         bool isLoadedAssets;
@@ -44,7 +45,8 @@ namespace Zangeki {
             gameBusinessContext = new GameBusinessContext();
 
             uiAppContext = new UIAppContext("UI", mainCanvas, hudFakeCanvas, mainCamera);
-            vfxAppContext = new VFXParticelAppContext("VFX_Particel", vfxRoot);
+            vfxParticelAppContext = new VFXParticelAppContext("VFX_Particel", vfxRoot);
+            vfxFrameAppContext = new VFXFrameAppContext(vfxRoot);
             cameraAppContext = new CameraAppContext(mainCamera, new Vector2(Screen.width, Screen.height));
 
             assetsInfraContext = new AssetsInfraContext();
@@ -57,7 +59,8 @@ namespace Zangeki {
             gameBusinessContext.assetsInfraContext = assetsInfraContext;
             gameBusinessContext.templateInfraContext = templateInfraContext;
             gameBusinessContext.uiContext = uiAppContext;
-            gameBusinessContext.vfxContext = vfxAppContext;
+            gameBusinessContext.vfxParticelContext = vfxParticelAppContext;
+            gameBusinessContext.vfxFrameContext = vfxFrameAppContext;
             gameBusinessContext.cameraContext = cameraAppContext;
             gameBusinessContext.mainCamera = mainCamera;
 
@@ -113,7 +116,7 @@ namespace Zangeki {
             GameBusiness.Init(gameBusinessContext);
 
             UIApp.Init(uiAppContext);
-            VFXParticelApp.Init(vfxAppContext);
+            VFXParticelApp.Init(vfxParticelAppContext);
 
         }
 
@@ -144,7 +147,7 @@ namespace Zangeki {
 
         async Task LoadAssets() {
             await UIApp.LoadAssets(uiAppContext);
-            await VFXParticelApp.LoadAssets(vfxAppContext);
+            await VFXParticelApp.LoadAssets(vfxParticelAppContext);
             await AssetsInfra.LoadAssets(assetsInfraContext);
             await TemplateInfra.LoadAssets(templateInfraContext);
         }
