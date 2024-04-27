@@ -96,6 +96,7 @@ namespace Zangeki {
 
             // Set Timer
             role.walkVFXInterval = roleTM.walkVFXInterval;
+            role.walkVFXTimer = roleTM.walkVFXInterval;
 
             return role;
         }
