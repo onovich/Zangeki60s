@@ -53,10 +53,19 @@ namespace Zangeki {
             RoleFSMComponent fsm = role.FSM_GetComponent();
             if (fsm.casting_isEntering) {
                 fsm.casting_isEntering = false;
+                if (role.allyStatus == AllyStatus.Enemy) {
+                    GameRoleVFXDomain.RolePlayCastVFX(ctx, role);
+                }
             }
 
             // Move
             GameRoleDomain.ApplyMove(ctx, role, fixdt);
+
+            if (fsm.casting_currentFrame == fsm.casting_slashFrame) {
+                if (role.allyStatus == AllyStatus.Enemy) {
+                    GameRoleVFXDomain.RolePlaySlashVFX(ctx, role);
+                }
+            }
 
             // Damage
             if (fsm.casting_currentFrame == fsm.casting_damageFrame) {

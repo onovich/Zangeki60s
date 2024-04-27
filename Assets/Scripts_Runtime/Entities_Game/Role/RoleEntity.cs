@@ -21,6 +21,7 @@ namespace Zangeki {
         
         // Skill
         public int skillTotalFrame;
+        public int slashFrame;
         public int damageFrame;
 
         // State
@@ -80,7 +81,7 @@ namespace Zangeki {
 
         public void Cast() {
             roleMod?.PlayAttack();
-            fsmCom.EnterCasting(skillTotalFrame, damageFrame);
+            fsmCom.EnterCasting(skillTotalFrame, damageFrame, slashFrame);
         }
 
         // Move

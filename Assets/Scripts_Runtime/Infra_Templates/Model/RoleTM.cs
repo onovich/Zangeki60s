@@ -15,6 +15,7 @@ namespace Zangeki {
         public float moveSpeed;
         public float attackDistance;
         public int skillTotalFrame;
+        public int slashFrame;
         public int damageFrame;
         public int leavingTotalFrame;
         public int hpMax;

@@ -71,6 +71,7 @@ namespace Zangeki {
             role.hp = role.hpMax;
             role.typeName = roleTM.typeName;
             role.damageFrame = roleTM.damageFrame;
+            role.slashFrame = roleTM.slashFrame;
             role.skillTotalFrame = roleTM.skillTotalFrame;
 
             // Rename

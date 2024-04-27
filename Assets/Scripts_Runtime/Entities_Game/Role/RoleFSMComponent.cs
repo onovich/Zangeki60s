@@ -11,12 +11,13 @@ namespace Zangeki {
         public bool leaving_isEntering;
         public bool casting_isEntering;
 
-        public float leaving_totalFrame;
-        public float leaving_currentFrame;
+        public int leaving_totalFrame;
+        public int leaving_currentFrame;
 
-        public float casting_totalFrame;
-        public float casting_damageFrame;
-        public float casting_currentFrame;
+        public int casting_totalFrame;
+        public int casting_slashFrame;
+        public int casting_damageFrame;
+        public int casting_currentFrame;
 
         public RoleFSMComponent() { }
 
@@ -30,7 +31,7 @@ namespace Zangeki {
             dead_isEntering = true;
         }
 
-        public void EnterLeaving(float totalFrame) {
+        public void EnterLeaving(int totalFrame) {
             status = RoleFSMStatus.Leaving;
             leaving_isEntering = true;
             leaving_totalFrame = totalFrame;
@@ -41,11 +42,12 @@ namespace Zangeki {
             leaving_currentFrame += 1;
         }
 
-        public void EnterCasting(float totalFrame, float damageFrame) {
+        public void EnterCasting(int totalFrame, int damageFrame, int slashFrame) {
             status = RoleFSMStatus.Casting;
             casting_isEntering = true;
             casting_totalFrame = totalFrame;
             casting_damageFrame = damageFrame;
+            casting_slashFrame = slashFrame;
             casting_currentFrame = 0;
         }
 
