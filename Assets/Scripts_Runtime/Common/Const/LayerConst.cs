@@ -1,6 +1,6 @@
 namespace Zangeki {
 
-    public static class LayConst {
+    public static class LayerConst {
 
         public const int GROUND = 6;
         public const int BLOCK = 7;
