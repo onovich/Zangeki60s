@@ -15,7 +15,7 @@ MonoBehaviour:
   gameResetEnterTime: 1
   gameTotalTime: 60
   ownerRoleTypeID: 3
-  originalMapTypeID: 1
+  originalMapTypeID: 2
   cameraDeadZoneNormalizedSize: {x: 0, y: 0}
   cameraShakeFrequency_roleDamage: 6
   cameraShakeAmplitude_roleDamage: 0.2

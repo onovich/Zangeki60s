@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1289747e8e3f8452f897cda1fbd54609, type: 3}
-  m_Name: TM_Role_Samurai
+  m_Name: TM_Role_2_Samurai
   m_EditorClassIdentifier: 
   typeID: 2
   typeName: Samurai

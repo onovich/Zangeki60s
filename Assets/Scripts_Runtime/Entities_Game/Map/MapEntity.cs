@@ -9,6 +9,8 @@ namespace Zangeki {
         public int typeID;
         public Vector2Int mapSize;
 
+        public bool isBlind;
+
         public WaveModel leftWaveModel;
         public WaveModel rightWaveModel;
 

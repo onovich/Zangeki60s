@@ -9,16 +9,19 @@ namespace Zangeki {
                 return;
             }
 
+            if (role.fsmCom.status != RoleFSMStatus.Idle) {
+                return;
+            }
+
             role.walkVFXTimer += dt;
             if (role.walkVFXTimer < role.walkVFXInterval) {
                 return;
             }
             role.walkVFXTimer = 0;
             var dir = role.faceDir;
-            Debug.Log($"Role {role.typeID} Walk VFX {dir}");
-            if (dir == Vector2.left) {
+            if (dir == Vector2.right) {
                 GameVFXDomain.VFX_PlayTapLeft(ctx, role.Pos);
-            } else if (dir == Vector2.right) {
+            } else if (dir == Vector2.left) {
                 GameVFXDomain.VFX_PlayTapRight(ctx, role.Pos);
             }
         }

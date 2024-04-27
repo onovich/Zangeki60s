@@ -8,6 +8,7 @@ namespace Zangeki {
     public class MapTM : ScriptableObject {
 
         public int typeID;
+        public bool isBlind;
 
         public Vector2Int mapSize;
         public float groundHeight;

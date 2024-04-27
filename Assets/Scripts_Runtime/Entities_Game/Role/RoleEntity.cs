@@ -79,7 +79,7 @@ namespace Zangeki {
         }
 
         public void Cast() {
-            roleMod.PlayAttack();
+            roleMod?.PlayAttack();
             fsmCom.EnterCasting(skillTotalFrame, damageFrame);
         }
 
@@ -121,7 +121,7 @@ namespace Zangeki {
 
         // Color
         public void Color_SetAlpha(float alpha) {
-            roleMod.SetColorAlpha(alpha);
+            roleMod?.SetColorAlpha(alpha);
         }
 
         // FSM
@@ -148,7 +148,7 @@ namespace Zangeki {
 
         // VFX
         public void TearDown() {
-            roleMod.TearDown();
+            roleMod?.TearDown();
             Destroy(this.gameObject);
         }
 

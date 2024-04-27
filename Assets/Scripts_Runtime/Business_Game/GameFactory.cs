@@ -20,6 +20,7 @@ namespace Zangeki {
             map.mapSize = mapTM.mapSize;
             map.SetGroundPos(mapTM.middlePoint);
             map.groundHeight = mapTM.groundHeight;
+            map.isBlind = mapTM.isBlind;
 
             // Set Bound
             map.middlePos = mapTM.middlePoint;
@@ -84,8 +85,10 @@ namespace Zangeki {
 
             // Set Mod
             var modPrefab = roleTM.mod;
-            var mod = GameObject.Instantiate(modPrefab, role.body).GetComponent<RoleMod>();
-            role.Mod_Set(mod);
+            if (modPrefab != null) {
+                var mod = GameObject.Instantiate(modPrefab, role.body).GetComponent<RoleMod>();
+                role.Mod_Set(mod);
+            }
 
             // Set FSM
             role.FSM_EnterIdle();

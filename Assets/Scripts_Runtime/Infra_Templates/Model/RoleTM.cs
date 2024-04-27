@@ -6,9 +6,12 @@ namespace Zangeki {
     [CreateAssetMenu(fileName = "TM_Role", menuName = "Zangeki/RoleTM")]
     public class RoleTM : ScriptableObject {
 
+        [Header("Role Info")]
         public int typeID;
         public string typeName;
         public AllyStatus allyStatus;
+
+        [Header("Role Attributes")]
         public float moveSpeed;
         public float attackDistance;
         public int skillTotalFrame;

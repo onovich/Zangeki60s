@@ -6,6 +6,7 @@ namespace Zangeki {
 
         // Tap
         public static void VFX_PlayTapLeft(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.tap_left_frame;
             var frameInterval = table.intervalTime;
@@ -14,6 +15,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlayTapRight(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.tap_right_frame;
             var frameInterval = table.intervalTime;
@@ -23,6 +25,7 @@ namespace Zangeki {
 
         // Clang_Break
         public static void VFX_PlayClangBreak1(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.clang_break1_frame;
             var frameInterval = table.intervalTime;
@@ -31,6 +34,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlayClangBreak2(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.clang_break2_frame;
             var frameInterval = table.intervalTime;
@@ -39,6 +43,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlayClangBreak3(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.clang_break3_frame;
             var frameInterval = table.intervalTime;
@@ -48,6 +53,7 @@ namespace Zangeki {
 
         // Swoosh
         public static void VFX_PlaySwooshLeft(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.swoosh_left_frame;
             var frameInterval = table.intervalTime;
@@ -56,6 +62,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlaySwooshRight(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.swoosh_right_frame;
             var frameInterval = table.intervalTime;
@@ -65,14 +72,16 @@ namespace Zangeki {
 
         // Swoosh_Break
         public static void VFX_PlaySwooshBreak1(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.swoosh_break1_frame;
             var frameInterval = table.intervalTime;
             var layer = SortingLayerConst.VFX;
             VFXFrameApp.AddVFXToWorld(ctx.vfxFrameContext, "VFX_SwooshBreak1", frames, false, frameInterval, pos, layer);
         }
-        
+
         public static void VFX_PlaySwooshBreak2(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.swoosh_break2_frame;
             var frameInterval = table.intervalTime;
@@ -81,6 +90,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlaySwooshBreak3(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.swoosh_break3_frame;
             var frameInterval = table.intervalTime;
@@ -90,6 +100,7 @@ namespace Zangeki {
 
         // Slash
         public static void VFX_PlaySlashLeft(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.slash_left_frame;
             var frameInterval = table.intervalTime;
@@ -98,6 +109,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlaySlashRight(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.slash_right_frame;
             var frameInterval = table.intervalTime;
@@ -107,6 +119,7 @@ namespace Zangeki {
 
         // Blade
         public static void VFX_PlayBlade1(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.blade1_frame;
             var frameInterval = table.intervalTime;
@@ -115,6 +128,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlayBlade2(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.blade2_frame;
             var frameInterval = table.intervalTime;
@@ -123,6 +137,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlayBlade3(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.blade3_frame;
             var frameInterval = table.intervalTime;
@@ -131,6 +146,7 @@ namespace Zangeki {
         }
 
         public static void VFX_PlayBlood(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.blood1_frame;
             var frameInterval = table.intervalTime;
