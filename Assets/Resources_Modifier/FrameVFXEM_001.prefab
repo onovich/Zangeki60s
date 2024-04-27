@@ -44,6 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94cd5769ff0248668c46c96b07f4cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeID: 1
   tm: {fileID: 11400000, guid: d188b61ea851d4c24b518bb61b58d973, type: 2}
-  folderPath: Assets/Resources_Runtime/VFXs
+  folderAsset: {fileID: 102900000, guid: 6559f653dac6e4bec9b719d5d7cdb147, type: 3}

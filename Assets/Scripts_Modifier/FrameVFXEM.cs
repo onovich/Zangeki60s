@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 namespace Zangeki.Modifier {
@@ -7,7 +8,7 @@ namespace Zangeki.Modifier {
 
         [Header("Bake Target")]
         public FrameVFXTM tm;
-        public string folderPath;
+        public DefaultAsset folderAsset;
 
     }
 

@@ -5,28 +5,34 @@ using UnityEngine;
 namespace Zangeki.Modifier {
     [CustomEditor(typeof(FrameVFXEM))]
     public class FrameVFXEMEditor : Editor {
-        private DefaultAsset folder;
+        SerializedProperty folderProperty;
+
+        private void OnEnable() {
+            folderProperty = serializedObject.FindProperty("folderAsset");
+        }
 
         public override void OnInspectorGUI() {
-            DrawDefaultInspector();
+            serializedObject.Update();
 
-            FrameVFXEM em = (FrameVFXEM)target;
+            FrameVFXEM script = (FrameVFXEM)target;
+            script.tm = (FrameVFXTM)EditorGUILayout.ObjectField("Bake Target", script.tm, typeof(FrameVFXTM), true);
 
             EditorGUI.BeginChangeCheck();
-            folder = EditorGUILayout.ObjectField("Image Folder", folder, typeof(DefaultAsset), false) as DefaultAsset;
+            EditorGUILayout.PropertyField(folderProperty, new GUIContent("Image Folder"));
             if (EditorGUI.EndChangeCheck()) {
-                if (folder != null && AssetDatabase.IsValidFolder(AssetDatabase.GetAssetPath(folder))) {
-                    em.folderPath = AssetDatabase.GetAssetPath(folder);
-                    EditorUtility.SetDirty(em);
+                serializedObject.ApplyModifiedProperties(); 
+            }
+
+            if (GUILayout.Button("Load Images") && script.folderAsset != null) {
+                string folderPath = AssetDatabase.GetAssetPath(script.folderAsset);
+                if (AssetDatabase.IsValidFolder(folderPath)) {
+                    LoadImages(folderPath, script);
+                    EditorUtility.SetDirty(script.tm);
                     AssetDatabase.SaveAssets();
                 }
             }
 
-            if (GUILayout.Button("Load Images") && folder != null && AssetDatabase.IsValidFolder(AssetDatabase.GetAssetPath(folder))) {
-                LoadImages(em.folderPath, em);
-                EditorUtility.SetDirty(em.tm);
-                AssetDatabase.SaveAssets();
-            }
+            serializedObject.ApplyModifiedProperties(); 
         }
 
         private void LoadImages(string path, FrameVFXEM em) {
