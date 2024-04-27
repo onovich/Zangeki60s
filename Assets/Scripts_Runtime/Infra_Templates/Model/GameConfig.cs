@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Zangeki {
 
-    [CreateAssetMenu(fileName = "SO_GameConfig", menuName = "Zangeki/GameConfig")]
+    [CreateAssetMenu(fileName = "TM_GameConfig", menuName = "Zangeki/GameConfig")]
     public class GameConfig : ScriptableObject {
 
         // Game

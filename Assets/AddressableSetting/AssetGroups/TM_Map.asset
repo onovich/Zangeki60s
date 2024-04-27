@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: cbd5a374a5b1346688d9792df2059774
   m_SerializeEntries:
   - m_GUID: 2d742814c19784e2aa3b933b9a5ec791
-    m_Address: SO_Map_001
+    m_Address: TM_Map_001
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Map

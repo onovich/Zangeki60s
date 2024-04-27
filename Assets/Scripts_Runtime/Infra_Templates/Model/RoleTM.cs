@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Zangeki {
 
-    [CreateAssetMenu(fileName = "SO_Role", menuName = "Zangeki/RoleTM")]
+    [CreateAssetMenu(fileName = "TM_Role", menuName = "Zangeki/RoleTM")]
     public class RoleTM : ScriptableObject {
 
         public int typeID;

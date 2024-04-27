@@ -14,6 +14,9 @@ namespace Zangeki {
         Dictionary<int, RoleTM> roleDict;
         public AsyncOperationHandle roleHandle;
 
+        FrameVFXTM frameVFXTable;
+        public AsyncOperationHandle frameVFXHandle;
+
         public TemplateInfraContext() {
             mapDict = new Dictionary<int, MapTM>();
             roleDict = new Dictionary<int, RoleTM>();
@@ -52,6 +55,15 @@ namespace Zangeki {
                 GLog.LogError($"Role {typeID} not found");
             }
             return has;
+        }
+
+        // FrameVFX
+        public void FrameVFX_Set(FrameVFXTM frameVFX) {
+            frameVFXTable = frameVFX;
+        }
+
+        public FrameVFXTM FrameVFX_Get() {
+            return frameVFXTable;
         }
 
         // Clear

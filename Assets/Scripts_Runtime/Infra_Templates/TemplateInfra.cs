@@ -32,6 +32,13 @@ namespace Zangeki {
                 ctx.roleHandle = handle;
             }
 
+            {
+                var handle = Addressables.LoadAssetAsync<FrameVFXTM>("TM_FrameVFX");
+                var tm = await handle.Task;
+                ctx.FrameVFX_Set(tm);
+                ctx.frameVFXHandle = handle;
+            }
+
         }
 
         public static void Release(TemplateInfraContext ctx) {
@@ -43,6 +50,9 @@ namespace Zangeki {
             }
             if (ctx.roleHandle.IsValid()) {
                 Addressables.Release(ctx.roleHandle);
+            }
+            if (ctx.frameVFXHandle.IsValid()) {
+                Addressables.Release(ctx.frameVFXHandle);
             }
         }
 

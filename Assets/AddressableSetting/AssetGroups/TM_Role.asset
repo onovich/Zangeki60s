@@ -18,19 +18,19 @@ MonoBehaviour:
   m_GUID: ec113d2ed3fd86f4d83791aee1a3f345
   m_SerializeEntries:
   - m_GUID: dc729f3a9797af54185e0ee62c313866
-    m_Address: SO_Role_Onovich
+    m_Address: TM_Role_Onovich
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Role
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e47683d3f5fd44fc08251f0285efe985
-    m_Address: SO_Role_Samurai
+    m_Address: TM_Role_Samurai
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Role
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f8ecf1ef239c4ece8b0e491481389c4
-    m_Address: SO_Role_Zatoichi
+    m_Address: TM_Role_Zatoichi
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Role

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Zangeki {
 
-    [CreateAssetMenu(fileName = "SO_Wave", menuName = "Zangeki/WaveTM")]
+    [CreateAssetMenu(fileName = "TM_Wave", menuName = "Zangeki/WaveTM")]
     public class WaveTM : ScriptableObject {
 
         public int typeID;

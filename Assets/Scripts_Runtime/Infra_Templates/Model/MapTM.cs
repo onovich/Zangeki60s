@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 namespace Zangeki {
 
-    [CreateAssetMenu(fileName = "SO_Map", menuName = "Zangeki/MapTM")]
+    [CreateAssetMenu(fileName = "TM_Map", menuName = "Zangeki/MapTM")]
     public class MapTM : ScriptableObject {
 
         public int typeID;

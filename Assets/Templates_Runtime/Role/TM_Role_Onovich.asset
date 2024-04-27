@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1289747e8e3f8452f897cda1fbd54609, type: 3}
-  m_Name: SO_Role_Zatoichi
+  m_Name: TM_Role_Onovich
   m_EditorClassIdentifier: 
-  typeID: 3
-  typeName: Zatoichi
+  typeID: 1
+  typeName: Onovich
   allyStatus: 1
   moveSpeed: 6.5
   attackDistance: 2.8
@@ -21,6 +21,6 @@ MonoBehaviour:
   damageFrame: 1
   leavingTotalFrame: 0
   hpMax: 3
-  mod: {fileID: 3927939327069252055, guid: 54a42cebd06a343c0b9ac69266b47a6a, type: 3}
+  mod: {fileID: 3927939327069252055, guid: 3cc0f7a37200a448eb809c199c4326aa, type: 3}
   deadVFX: {fileID: 1046417506903995189, guid: 4cc547ee9ad754a728a343efb6c300c0, type: 3}
   deadVFXDuration: 2
