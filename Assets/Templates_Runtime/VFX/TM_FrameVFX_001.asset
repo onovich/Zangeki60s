@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152a500826aab49dba87dba5bcec71fa, type: 3}
   m_Name: TM_FrameVFX_001
   m_EditorClassIdentifier: 
+  intervalTime: 0.083333336
   tap_left_frame:
   - {fileID: 21300000, guid: b4e08582db2cd4c748f36bc35f0d0aa2, type: 3}
   - {fileID: 21300000, guid: cfcaa66babd6e42d5a23f63be1eaa743, type: 3}

@@ -26,6 +26,10 @@ namespace Zangeki {
         // State
         public bool needTearDown;
 
+        // Timer
+        public float walkVFXInterval;
+        public float walkVFXTimer;
+
         // FSM
         public RoleFSMComponent fsmCom;
 

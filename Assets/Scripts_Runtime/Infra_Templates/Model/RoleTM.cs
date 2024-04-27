@@ -18,6 +18,8 @@ namespace Zangeki {
         public RoleMod mod;
         public GameObject deadVFX;
         public float deadVFXDuration;
+
+        public float walkVFXInterval;
         
     }
 

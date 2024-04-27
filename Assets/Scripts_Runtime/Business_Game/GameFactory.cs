@@ -19,6 +19,7 @@ namespace Zangeki {
             map.typeID = typeID;
             map.mapSize = mapTM.mapSize;
             map.SetGroundPos(mapTM.middlePoint);
+            map.groundHeight = mapTM.groundHeight;
 
             // Set Bound
             map.middlePos = mapTM.middlePoint;
@@ -45,6 +46,7 @@ namespace Zangeki {
                                  IDRecordService idRecordService,
                                  int typeID,
                                  Vector2 pos,
+                                 float groundHeight,
                                  Vector2 direction) {
 
             var has = templateInfraContext.Role_TryGet(typeID, out var roleTM);
@@ -74,6 +76,7 @@ namespace Zangeki {
             role.gameObject.name = $"{role.typeName} - {role.entityID}";
 
             // Set Pos
+            pos.y -= groundHeight;
             role.Pos_SetPos(pos);
 
             // Set Dir
@@ -90,6 +93,9 @@ namespace Zangeki {
             // Set VFX
             role.deadVFXName = roleTM.deadVFX.name;
             role.deadVFXDuration = roleTM.deadVFXDuration;
+
+            // Set Timer
+            role.walkVFXInterval = roleTM.walkVFXInterval;
 
             return role;
         }

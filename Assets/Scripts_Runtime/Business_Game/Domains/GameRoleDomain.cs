@@ -5,11 +5,13 @@ namespace Zangeki {
     public static class GameRoleDomain {
 
         public static RoleEntity Spawn(GameBusinessContext ctx, int typeID, Vector2 pos, Vector2 dir) {
+            var map = ctx.currentMapEntity;
             var role = GameFactory.Role_Spawn(ctx.templateInfraContext,
                                               ctx.assetsInfraContext,
                                               ctx.idRecordService,
                                               typeID,
                                               pos,
+                                              map.groundHeight,
                                               dir);
 
             ctx.roleRepo.Add(role);

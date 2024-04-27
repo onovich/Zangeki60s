@@ -16,6 +16,8 @@ namespace Zangeki {
         public Vector2 leftBound;
         public Vector2 rightBound;
 
+        public float groundHeight;
+
         [SerializeField] Transform ground;
 
         public float timer;

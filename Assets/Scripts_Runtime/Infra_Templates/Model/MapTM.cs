@@ -10,6 +10,7 @@ namespace Zangeki {
         public int typeID;
 
         public Vector2Int mapSize;
+        public float groundHeight;
 
         // Wave
         public WaveTM leftWaveTM;

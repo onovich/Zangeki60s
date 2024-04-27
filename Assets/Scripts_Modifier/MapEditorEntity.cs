@@ -46,10 +46,13 @@ namespace Zangeki.Modifier {
             mapTM.leftBound = editors[0].GetPos();
             mapTM.middlePoint = editors[1].GetPos();
             mapTM.rightBound = editors[2].GetPos();
+            mapTM.groundHeight = editors[1].GetPos().y;
+
         }
 
         void OnDrawGizmos() {
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.white;
+            Gizmos.DrawLine(mapTM.leftBound, new Vector3(mapTM.rightBound.x, mapTM.leftBound.y, 0));
         }
 
     }

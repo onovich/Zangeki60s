@@ -104,6 +104,13 @@ namespace Zangeki {
                 // UI
                 UIApp.GameInfo_RefreshTime(ctx.uiContext, game.fsmComponent.gaming_gameTime);
 
+                // VFX
+                var roleLen = ctx.roleRepo.TakeAll(out var roleArr);
+                for (int i = 0; i < roleLen; i++) {
+                    var role = roleArr[i];
+                    GameRoleVFXDomain.TickRoleWalkVFX(ctx, role, dt);
+                }
+
             }
             // VFX
             VFXParticelApp.LateTick(ctx.vfxParticelContext, dt);
