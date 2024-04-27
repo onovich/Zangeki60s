@@ -26,6 +26,26 @@ namespace Zangeki {
             }
         }
 
+        public static void RolePlayCastVFX(GameBusinessContext ctx, RoleEntity role) {
+
+            if (role.allyStatus == AllyStatus.Player) {
+                return;
+            }
+
+            if (role.fsmCom.status != RoleFSMStatus.Casting) {
+                return;
+            }
+
+            var dir = role.faceDir;
+            var pos = role.Pos + new Vector2(0, 0.5f);
+            if (dir == Vector2.right) {
+                GameVFXDomain.VFX_PlaySwooshRight(ctx, pos);
+            } else if (dir == Vector2.left) {
+                GameVFXDomain.VFX_PlaySwooshLeft(ctx, pos);
+            }
+
+        }
+
     }
 
 }
