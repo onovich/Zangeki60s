@@ -54,6 +54,7 @@ namespace Zangeki {
             if (fsm.casting_isEntering) {
                 fsm.casting_isEntering = false;
                 if (role.allyStatus == AllyStatus.Enemy) {
+                    Debug.Log("Casting Enter: CurrentFrame:" + fsm.casting_currentFrame + ";SlashFrame:" + fsm.casting_slashFrame);
                     GameRoleVFXDomain.RolePlayCastVFX(ctx, role);
                 }
             }
@@ -63,6 +64,7 @@ namespace Zangeki {
 
             if (fsm.casting_currentFrame == fsm.casting_slashFrame) {
                 if (role.allyStatus == AllyStatus.Enemy) {
+                    Debug.Log("Casting Slash: CurrentFrame:" + fsm.casting_currentFrame + ";SlashFrame:" + fsm.casting_slashFrame);
                     GameRoleVFXDomain.RolePlaySlashVFX(ctx, role);
                 }
             }
@@ -77,7 +79,7 @@ namespace Zangeki {
             GameRoleDomain.ApplyStage(ctx, role);
 
             // Frame
-            fsm.Casting_IncFrame(fixdt, role.stateFrameInterval);
+            fsm.Casting_IncFrame();
 
             // CD
             if (role.allyStatus == AllyStatus.Enemy) {
@@ -110,7 +112,7 @@ namespace Zangeki {
             }
             var alpha = EasingHelper.Easing(startAlpha, endAlpha, current, duration, EasingType.Linear);
             role.Color_SetAlpha(alpha);
-            fsm.Leaving_IncFrame(fixdt, role.stateFrameInterval);
+            fsm.Leaving_IncFrame();
         }
 
         static void FixedTickFSM_Dead(GameBusinessContext ctx, RoleEntity role, float fixdt) {

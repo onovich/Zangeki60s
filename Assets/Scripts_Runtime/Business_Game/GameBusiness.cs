@@ -23,7 +23,7 @@ namespace Zangeki {
             ProcessInput(ctx, dt);
             PreTick(ctx, dt);
 
-            const float intervalTime = 0.01f;
+            const float intervalTime = 1f / 12;
             ref float restSec = ref ctx.fixedRestSec;
             restSec += dt;
             if (restSec < intervalTime) {
