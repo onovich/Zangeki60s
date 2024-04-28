@@ -20,9 +20,9 @@ namespace Zangeki {
             role.walkVFXTimer = 0;
             var dir = role.faceDir;
             if (dir == Vector2.right) {
-                GameVFXDomain.VFX_PlayTapLeft(ctx, role.Pos);
+                VFXFrameApp.VFX_PlayTapLeft(ctx, role.Pos);
             } else if (dir == Vector2.left) {
-                GameVFXDomain.VFX_PlayTapRight(ctx, role.Pos);
+                VFXFrameApp.VFX_PlayTapRight(ctx, role.Pos);
             }
         }
 
@@ -39,9 +39,9 @@ namespace Zangeki {
             var dir = role.faceDir;
             var pos = role.Pos + new Vector2(0, 0.5f);
             if (dir == Vector2.right) {
-                GameVFXDomain.VFX_PlaySwooshRight(ctx, pos);
+                VFXFrameApp.VFX_PlaySwooshRight(ctx, pos);
             } else if (dir == Vector2.left) {
-                GameVFXDomain.VFX_PlaySwooshLeft(ctx, pos);
+                VFXFrameApp.VFX_PlaySwooshLeft(ctx, pos);
             }
 
         }
@@ -59,9 +59,9 @@ namespace Zangeki {
             var dir = role.faceDir;
             var pos = role.Pos;
             if (dir == Vector2.right) {
-                GameVFXDomain.VFX_PlaySlashRight(ctx, pos);
+                VFXFrameApp.VFX_PlaySlashRight(ctx, pos);
             } else if (dir == Vector2.left) {
-                GameVFXDomain.VFX_PlaySlashLeft(ctx, pos);
+                VFXFrameApp.VFX_PlaySlashLeft(ctx, pos);
             }
 
         }
