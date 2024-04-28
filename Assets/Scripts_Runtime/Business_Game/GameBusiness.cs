@@ -88,6 +88,9 @@ namespace Zangeki {
                     GameRoleFSMController.FixedTickFSM(ctx, role, fixdt);
                 }
 
+                // VFX
+                VFXFrameApp.LateTick(ctx.vfxFrameContext, fixdt);
+
                 Physics2D.Simulate(fixdt);
             }
         }
@@ -114,7 +117,6 @@ namespace Zangeki {
             }
             // VFX
             VFXParticelApp.LateTick(ctx.vfxParticelContext, dt);
-            VFXFrameApp.LateTick(ctx.vfxFrameContext, dt);
         }
 
         public static void TearDown(GameBusinessContext ctx) {
