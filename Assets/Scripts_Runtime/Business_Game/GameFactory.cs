@@ -73,6 +73,7 @@ namespace Zangeki {
             role.damageFrame = roleTM.damageFrame;
             role.slashFrame = roleTM.slashFrame;
             role.skillTotalFrame = roleTM.skillTotalFrame;
+            role.stateFrameInterval = roleTM.stateFrameInterval;
 
             // Rename
             role.gameObject.name = $"{role.typeName} - {role.entityID}";

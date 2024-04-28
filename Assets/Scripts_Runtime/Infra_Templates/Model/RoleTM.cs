@@ -24,6 +24,7 @@ namespace Zangeki {
         public float deadVFXDuration;
 
         public float walkVFXInterval;
+        public float stateFrameInterval;
         
     }
 

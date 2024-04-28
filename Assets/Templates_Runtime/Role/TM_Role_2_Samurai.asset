@@ -18,6 +18,7 @@ MonoBehaviour:
   moveSpeed: 6.5
   attackDistance: 2
   skillTotalFrame: 6
+  slashFrame: 0
   damageFrame: 1
   leavingTotalFrame: 25
   hpMax: 1
@@ -25,3 +26,4 @@ MonoBehaviour:
   deadVFX: {fileID: 1046417506903995189, guid: 4cc547ee9ad754a728a343efb6c300c0, type: 3}
   deadVFXDuration: 2
   walkVFXInterval: 0.2
+  stateFrameInterval: 0.083333336

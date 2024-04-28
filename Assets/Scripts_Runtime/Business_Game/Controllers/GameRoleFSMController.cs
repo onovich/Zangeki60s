@@ -76,7 +76,7 @@ namespace Zangeki {
             GameRoleDomain.ApplyStage(ctx, role);
 
             // Frame
-            fsm.Casting_IncFrame();
+            fsm.Casting_IncFrame(fixdt, role.stateFrameInterval);
 
             // CD
             if (role.allyStatus == AllyStatus.Enemy) {
@@ -109,7 +109,7 @@ namespace Zangeki {
             }
             var alpha = EasingHelper.Easing(startAlpha, endAlpha, current, duration, EasingType.Linear);
             role.Color_SetAlpha(alpha);
-            fsm.Leaving_IncFrame();
+            fsm.Leaving_IncFrame(fixdt, role.stateFrameInterval);
         }
 
         static void FixedTickFSM_Dead(GameBusinessContext ctx, RoleEntity role, float fixdt) {

@@ -13,11 +13,13 @@ namespace Zangeki {
 
         public int leaving_totalFrame;
         public int leaving_currentFrame;
+        public float leaving_currentTimer;
 
         public int casting_totalFrame;
         public int casting_slashFrame;
         public int casting_damageFrame;
         public int casting_currentFrame;
+        public float casting_currentTimer;
 
         public RoleFSMComponent() { }
 
@@ -38,7 +40,12 @@ namespace Zangeki {
             leaving_currentFrame = 0;
         }
 
-        public void Leaving_IncFrame() {
+        public void Leaving_IncFrame(float dt, float stateFrameInterval) {
+            leaving_currentTimer += dt;
+            if (leaving_currentTimer < stateFrameInterval) {
+                return;
+            }
+            leaving_currentTimer = 0;
             leaving_currentFrame += 1;
         }
 
@@ -51,7 +58,12 @@ namespace Zangeki {
             casting_currentFrame = 0;
         }
 
-        public void Casting_IncFrame() {
+        public void Casting_IncFrame(float dt, float stateFrameInterval) {
+            casting_currentTimer += 1;
+            if (casting_currentTimer < stateFrameInterval) {
+                return;
+            }
+            casting_currentTimer = 0;
             casting_currentFrame += 1;
         }
 
