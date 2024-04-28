@@ -21,6 +21,7 @@ namespace Zangeki.UI {
             if (!has) {
                 return;
             }
+            GLog.Log("Anim_PlayHurt:Hp=" + hp);
             panel.Anim_PlayHurt(hp);
         }
 

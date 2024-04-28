@@ -69,6 +69,7 @@ namespace Zangeki {
 
             // Damage
             if (fsm.casting_currentFrame == fsm.casting_damageFrame) {
+                Debug.Log("Casting Damage: CurrentFrame:" + fsm.casting_currentFrame + ";DamageFrame:" + fsm.casting_damageFrame);
                 GameRoleDomain.ApplyDamage(ctx, role);
             }
 

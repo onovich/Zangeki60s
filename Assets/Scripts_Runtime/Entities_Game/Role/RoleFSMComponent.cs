@@ -1,4 +1,4 @@
-using System.Numerics;
+using UnityEngine;
 
 namespace Zangeki {
 
@@ -59,10 +59,11 @@ namespace Zangeki {
         }
 
         public void Casting_IncFrame(float dt, float stateFrameInterval) {
-            casting_currentTimer += 1;
+            casting_currentTimer += dt;
             if (casting_currentTimer < stateFrameInterval) {
                 return;
             }
+            // Debug.Log("Casting_currentTimer: " + casting_currentTimer + ";Casting_Interval: " + stateFrameInterval + ";Casting_currentFrame: " + casting_currentFrame + ";Casting_totalFrame: " + casting_totalFrame);
             casting_currentTimer = 0;
             casting_currentFrame += 1;
         }
