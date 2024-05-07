@@ -155,12 +155,7 @@ namespace Zangeki {
 
         // Frame
         public bool Frame_CanBreakSwoosh(int currentFrame) {
-            var res = currentFrame >= swooshBreakFrame && currentFrame <= swooshBreakFrameEnd;
-            if (!res) {
-                GLog.Log($"Frame_CanBreakSwoosh: {currentFrame} not in range {swooshBreakFrame} - {swooshBreakFrameEnd}");
-
-            }
-            return res;
+            return = currentFrame >= swooshBreakFrame && currentFrame <= swooshBreakFrameEnd;
         }
 
         // VFX
