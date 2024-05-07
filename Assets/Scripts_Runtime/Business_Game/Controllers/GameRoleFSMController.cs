@@ -124,6 +124,7 @@ namespace Zangeki {
             // VFX
             if (role.allyStatus == AllyStatus.Enemy) {
                 GameRoleVFXDomain.RolePlaySwooshBreakVFX(ctx, role);
+                GameRoleVFXDomain.RolePlayBloodVFX(ctx, role);
             } else {
                 VFXParticelApp.AddVFXToWorld(ctx.vfxParticelContext, role.deadVFXName, role.deadVFXDuration, role.Pos);
             }

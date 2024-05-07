@@ -1,9 +1,12 @@
+using MortiseFrame.Swing;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 namespace Zangeki {
 
     public static class GameRoleVFXDomain {
 
+        // Walk
         public static void TickRoleTapVFX(GameBusinessContext ctx, RoleEntity role, float dt) {
             if (role.allyStatus == AllyStatus.Player) {
                 return;
@@ -26,6 +29,7 @@ namespace Zangeki {
             }
         }
 
+        // Casting
         public static void RolePlaySwooshVFX(GameBusinessContext ctx, RoleEntity role) {
 
             if (role.allyStatus == AllyStatus.Player) {
@@ -51,6 +55,7 @@ namespace Zangeki {
 
         }
 
+        // Casting Break
         public static void RolePlaySwooshBreakVFX(GameBusinessContext ctx, RoleEntity role) {
 
             if (role.allyStatus == AllyStatus.Player) {
@@ -70,6 +75,7 @@ namespace Zangeki {
             VFXFrameApp.VFX_PlaySwooshBreak1(ctx, pos);
         }
 
+        // Attck
         public static void RolePlaySlashVFX(GameBusinessContext ctx, RoleEntity role) {
 
             if (role.allyStatus == AllyStatus.Player) {
@@ -88,6 +94,32 @@ namespace Zangeki {
                 VFXFrameApp.VFX_PlaySlashLeft(ctx, pos);
             }
 
+        }
+
+        // Blood
+        public static void RolePlayBloodVFX(GameBusinessContext ctx, RoleEntity role) {
+
+            if (role.allyStatus == AllyStatus.Player) {
+                return;
+            }
+
+            if (role.fsmCom.status != RoleFSMStatus.Dead) {
+                return;
+            }
+
+            var pos = role.Pos;
+            var rdOffsetX = Random.Range(-0.1f, 0.1f);
+            var rdOffsetY = Random.Range(-0.1f, 0.1f);
+            pos += new Vector2(rdOffsetX, rdOffsetY);
+            var rdTime = Random.Range(1f, 2.5f);
+            var rdFadingOutTime = Random.Range(0.1f, 0.5f);
+            bool flix = role.faceDir.x > 0;
+
+            var id = VFXFrameApp.VFX_PlayBlood(ctx, pos);
+            VFXFrameApp.SetDelayEndSec(ctx.vfxFrameContext, id, rdTime);
+
+            VFXFrameApp.SetFadingOut(ctx.vfxFrameContext, id, rdFadingOutTime, EasingType.Sine, EasingMode.EaseOut);
+            VFXFrameApp.FlipX(ctx.vfxFrameContext, id, flix);
         }
 
     }

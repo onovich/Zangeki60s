@@ -47,6 +47,10 @@ namespace Zangeki {
                                                           sortingLayerName: sortingLayer);
         }
 
+        public static void FlipX(VFXFrameAppContext ctx, int preSpawnVFXID, bool flipX) {
+            ctx.vfxFrameCore.FlipX(preSpawnVFXID, flipX);
+        }
+
         public static void SetDelayEndSec(VFXFrameAppContext ctx, int preSpawnVFXID, float delayEndSec) {
             ctx.vfxFrameCore.SetDelayEndSec(preSpawnVFXID, delayEndSec);
         }
@@ -209,13 +213,13 @@ namespace Zangeki {
         }
 
         // Blood
-        public static void VFX_PlayBlood(GameBusinessContext ctx, Vector2 pos) {
-            if (!ctx.currentMapEntity.isBlind) return;
+        public static int VFX_PlayBlood(GameBusinessContext ctx, Vector2 pos) {
+            if (!ctx.currentMapEntity.isBlind) return -1;
             var table = ctx.templateInfraContext.FrameVFX_Get();
             var frames = table.blood1_frame;
             var frameInterval = table.intervalTime;
             var layer = SortingLayerConst.VFX;
-            VFXFrameApp.AddVFXToWorld(ctx.vfxFrameContext, "Blood", frames, false, frameInterval, pos, layer);
+            return VFXFrameApp.AddVFXToWorld(ctx.vfxFrameContext, "Blood", frames, false, frameInterval, pos, layer);
         }
 
     }
