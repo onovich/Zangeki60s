@@ -36,6 +36,15 @@ namespace Zangeki {
                 return;
             }
 
+            if (role.allyStatus == AllyStatus.Player) {
+                if (target.fsmCom.status != RoleFSMStatus.Casting) {
+                    return;
+                }
+                if (!target.Frame_CanBreakSwoosh(target.fsmCom.casting_currentFrame)) {
+                    return;
+                }
+            }
+
             var distSqr = (target.Pos - role.Pos).sqrMagnitude;
             if (distSqr > role.attackDistance * role.attackDistance) {
                 return;

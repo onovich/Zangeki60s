@@ -35,7 +35,7 @@ namespace Zangeki {
         public void EnterLeaving(int totalFrame) {
             status = RoleFSMStatus.Leaving;
             leaving_isEntering = true;
-            leaving_totalFrame = totalFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
+            leaving_totalFrame = totalFrame;
             leaving_currentFrame = 0;
         }
 
@@ -46,10 +46,10 @@ namespace Zangeki {
         public void EnterCasting(int totalFrame, int damageFrame, int slashFrame, int swooshFrame) {
             status = RoleFSMStatus.Casting;
             casting_isEntering = true;
-            casting_totalFrame = totalFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
-            casting_damageFrame = damageFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
-            casting_slashFrame = slashFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
-            casting_swooshFrame = swooshFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
+            casting_totalFrame = totalFrame;
+            casting_damageFrame = damageFrame;
+            casting_slashFrame = slashFrame;
+            casting_swooshFrame = swooshFrame;
             casting_currentFrame = 0;
         }
 

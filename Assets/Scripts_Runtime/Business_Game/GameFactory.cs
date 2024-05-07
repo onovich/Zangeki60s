@@ -70,10 +70,14 @@ namespace Zangeki {
             role.hpMax = roleTM.hpMax;
             role.hp = role.hpMax;
             role.typeName = roleTM.typeName;
-            role.swooshFrame = roleTM.swooshFrame;
-            role.damageFrame = roleTM.damageFrame;
-            role.slashFrame = roleTM.slashFrame;
-            role.skillTotalFrame = roleTM.skillTotalFrame;
+
+            // Set Frame
+            role.swooshFrame = roleTM.swooshFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
+            role.swooshBreakFrame = roleTM.swooshBreakFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
+            role.swooshBreakFrameEnd = roleTM.swooshBreakFrameEnd * GameConst.GAME_LOGIC_FRAME_PERSEC;
+            role.damageFrame = roleTM.damageFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
+            role.slashFrame = roleTM.slashFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
+            role.skillTotalFrame = roleTM.skillTotalFrame * GameConst.GAME_LOGIC_FRAME_PERSEC;
 
             // Rename
             role.gameObject.name = $"{role.typeName} - {role.entityID}";

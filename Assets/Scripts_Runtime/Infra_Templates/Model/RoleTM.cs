@@ -17,6 +17,8 @@ namespace Zangeki {
         public int skillTotalFrame;
         public int swooshFrame;
         public int slashFrame;
+        public int swooshBreakFrame;
+        public int swooshBreakFrameEnd;
         public int damageFrame;
         public int leavingTotalFrame;
         public int hpMax;

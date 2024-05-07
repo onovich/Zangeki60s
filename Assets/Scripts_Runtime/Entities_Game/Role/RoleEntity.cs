@@ -22,6 +22,8 @@ namespace Zangeki {
         // Skill
         public int skillTotalFrame;
         public int swooshFrame;
+        public int swooshBreakFrame;
+        public int swooshBreakFrameEnd;
         public int slashFrame;
         public int damageFrame;
 
@@ -149,6 +151,16 @@ namespace Zangeki {
         // Mod
         public void Mod_Set(RoleMod mod) {
             roleMod = mod;
+        }
+
+        // Frame
+        public bool Frame_CanBreakSwoosh(int currentFrame) {
+            var res = currentFrame >= swooshBreakFrame && currentFrame <= swooshBreakFrameEnd;
+            if (!res) {
+                GLog.Log($"Frame_CanBreakSwoosh: {currentFrame} not in range {swooshBreakFrame} - {swooshBreakFrameEnd}");
+
+            }
+            return res;
         }
 
         // VFX
