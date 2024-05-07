@@ -21,6 +21,7 @@ namespace Zangeki {
         public VFXParticelAppContext vfxParticelContext;
         public VFXFrameAppContext vfxFrameContext;
         public CameraAppContext cameraContext;
+        public SoundAppContext soundContext;
 
         // Camera
         public Camera mainCamera;

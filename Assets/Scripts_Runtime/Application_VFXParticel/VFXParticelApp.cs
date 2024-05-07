@@ -19,6 +19,10 @@ namespace Zangeki {
             }
         }
 
+         public static void ReleaseAssets(VFXParticelAppContext ctx) {
+            ctx.vfxParticelCore.ReleaseAssets();
+        }
+
         public static void LateTick(VFXParticelAppContext ctx, float dt) {
             ctx.vfxParticelCore.Tick(dt);
         }

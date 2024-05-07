@@ -23,6 +23,7 @@ namespace Zangeki {
         VFXParticelAppContext vfxParticelAppContext;
         VFXFrameAppContext vfxFrameAppContext;
         CameraAppContext cameraAppContext;
+        SoundAppContext soundAppContext;
 
         bool isLoadedAssets;
         bool isTearDown;
@@ -36,6 +37,7 @@ namespace Zangeki {
             Transform hudFakeCanvas = GameObject.Find("HUDFakeCanvas").transform;
             Camera mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
             Transform vfxRoot = GameObject.Find("VFXRoot").transform;
+            Transform soundRoot = GameObject.Find("SoundRoot").transform;
 
             mainCamera.orthographicSize = (Screen.height / 2f) / 32f;
 
@@ -48,12 +50,14 @@ namespace Zangeki {
             vfxParticelAppContext = new VFXParticelAppContext("VFX_Particel", vfxRoot);
             vfxFrameAppContext = new VFXFrameAppContext(vfxRoot);
             cameraAppContext = new CameraAppContext(mainCamera, new Vector2(Screen.width, Screen.height));
+            soundAppContext = new SoundAppContext(soundRoot);
 
             assetsInfraContext = new AssetsInfraContext();
             templateInfraContext = new TemplateInfraContext();
 
             // Inject
             loginBusinessContext.uiContext = uiAppContext;
+            loginBusinessContext.soundContext = soundAppContext;
 
             gameBusinessContext.inputEntity = inputEntity;
             gameBusinessContext.assetsInfraContext = assetsInfraContext;
@@ -62,6 +66,7 @@ namespace Zangeki {
             gameBusinessContext.vfxParticelContext = vfxParticelAppContext;
             gameBusinessContext.vfxFrameContext = vfxFrameAppContext;
             gameBusinessContext.cameraContext = cameraAppContext;
+            gameBusinessContext.soundContext = soundAppContext;
             gameBusinessContext.mainCamera = mainCamera;
 
             cameraAppContext.templateInfraContext = templateInfraContext;
@@ -150,6 +155,7 @@ namespace Zangeki {
             await VFXParticelApp.LoadAssets(vfxParticelAppContext);
             await AssetsInfra.LoadAssets(assetsInfraContext);
             await TemplateInfra.LoadAssets(templateInfraContext);
+            await SoundApp.LoadAssets(soundAppContext);
         }
 
         void OnApplicationQuit() {
@@ -166,14 +172,19 @@ namespace Zangeki {
             }
             isTearDown = true;
 
-            loginBusinessContext.evt.Clear();
             uiAppContext.evt.Clear();
 
-            GameBusiness.TearDown(gameBusinessContext);
             AssetsInfra.ReleaseAssets(assetsInfraContext);
             TemplateInfra.Release(templateInfraContext);
-            // TemplateInfra.ReleaseAssets(templateInfraContext);
-            // UIApp.TearDown(uiAppContext);
+            SoundApp.ReleaseAssets(soundAppContext);
+            VFXParticelApp.ReleaseAssets(vfxParticelAppContext);
+            UIApp.ReleaseAssets(uiAppContext);
+
+            GameBusiness.TearDown(gameBusinessContext);
+            SoundApp.TearDown(soundAppContext);
+            VFXParticelApp.TearDown(vfxParticelAppContext);
+            VFXFrameApp.TearDown(vfxFrameAppContext);
+            UIApp.TearDown(uiAppContext);
         }
 
         void OnDrawGizmos() {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using MortiseFrame.Loom;
+using TenonKit.Loom;
 using MortiseFrame.Swing;
 
 namespace Zangeki.UI {

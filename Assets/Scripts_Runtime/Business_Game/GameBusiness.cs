@@ -81,7 +81,7 @@ namespace Zangeki {
                 // VFX
                 for (int i = 0; i < roleLen; i++) {
                     var role = roleArr[i];
-                    GameRoleVFXDomain.TickRoleWalkVFX(ctx, role, dt);
+                    GameRoleVFXDomain.TickRoleTapVFX(ctx, role, dt);
                 }
 
                 Physics2D.Simulate(dt);

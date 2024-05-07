@@ -4,7 +4,7 @@ namespace Zangeki {
 
     public static class GameRoleVFXDomain {
 
-        public static void TickRoleWalkVFX(GameBusinessContext ctx, RoleEntity role, float dt) {
+        public static void TickRoleTapVFX(GameBusinessContext ctx, RoleEntity role, float dt) {
             if (role.allyStatus == AllyStatus.Player) {
                 return;
             }
