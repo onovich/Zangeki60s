@@ -31,7 +31,6 @@ namespace Zangeki {
         // Timer
         public float walkVFXInterval;
         public float walkVFXTimer;
-        public float stateFrameInterval;
 
         // FSM
         public RoleFSMComponent fsmCom;

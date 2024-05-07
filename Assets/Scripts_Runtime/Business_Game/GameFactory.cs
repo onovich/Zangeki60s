@@ -74,7 +74,6 @@ namespace Zangeki {
             role.damageFrame = roleTM.damageFrame;
             role.slashFrame = roleTM.slashFrame;
             role.skillTotalFrame = roleTM.skillTotalFrame;
-            role.stateFrameInterval = roleTM.stateFrameInterval;
 
             // Rename
             role.gameObject.name = $"{role.typeName} - {role.entityID}";
@@ -102,7 +101,7 @@ namespace Zangeki {
 
             // Set Timer
             role.walkVFXInterval = roleTM.walkVFXInterval;
-            role.walkVFXTimer = roleTM.walkVFXInterval;
+            role.walkVFXTimer = 0f;
 
             return role;
         }
