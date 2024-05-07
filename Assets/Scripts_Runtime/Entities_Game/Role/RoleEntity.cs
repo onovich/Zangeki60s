@@ -155,7 +155,7 @@ namespace Zangeki {
 
         // Frame
         public bool Frame_CanBreakSwoosh(int currentFrame) {
-            return = currentFrame >= swooshBreakFrame && currentFrame <= swooshBreakFrameEnd;
+            return currentFrame >= swooshBreakFrame && currentFrame <= swooshBreakFrameEnd;
         }
 
         // VFX
