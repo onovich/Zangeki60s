@@ -47,6 +47,8 @@ namespace Zangeki {
         public string deadVFXName;
         public float deadVFXDuration;
 
+        public RoleVFXComponent vfxCom;
+
         // Physics
         [SerializeField] Rigidbody2D rb;
 
@@ -56,6 +58,7 @@ namespace Zangeki {
         public void Ctor() {
             fsmCom = new RoleFSMComponent();
             inputCom = new RoleInputComponent();
+            vfxCom = new RoleVFXComponent();
         }
 
         // Pos
@@ -150,6 +153,7 @@ namespace Zangeki {
 
         // VFX
         public void TearDown() {
+            vfxCom.Clear();
             roleMod?.TearDown();
             Destroy(this.gameObject);
         }

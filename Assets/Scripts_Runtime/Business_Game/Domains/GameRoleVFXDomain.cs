@@ -38,11 +38,16 @@ namespace Zangeki {
 
             var dir = role.faceDir;
             var pos = role.Pos + new Vector2(0, 0.5f);
+            var vfxID = -1;
             if (dir == Vector2.right) {
-                VFXFrameApp.VFX_PlaySwooshRight(ctx, pos);
+                vfxID = VFXFrameApp.VFX_PlaySwooshRight(ctx, pos);
             } else if (dir == Vector2.left) {
-                VFXFrameApp.VFX_PlaySwooshLeft(ctx, pos);
+                vfxID = VFXFrameApp.VFX_PlaySwooshLeft(ctx, pos);
             }
+            if (vfxID == 1) {
+                return;
+            }
+            role.vfxCom.AddVFX(vfxID);
 
         }
 
@@ -55,6 +60,10 @@ namespace Zangeki {
             if (role.fsmCom.status != RoleFSMStatus.Dead) {
                 return;
             }
+
+            role.vfxCom.ForEach(vfxID => {
+                VFXFrameApp.StopVFXManualy(ctx.vfxFrameContext, vfxID);
+            });
 
             var dir = role.faceDir;
             var pos = role.Pos + new Vector2(0, 0.5f);
