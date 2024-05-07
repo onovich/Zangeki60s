@@ -26,7 +26,7 @@ namespace Zangeki {
             }
         }
 
-        public static void RolePlayCastVFX(GameBusinessContext ctx, RoleEntity role) {
+        public static void RolePlaySwooshVFX(GameBusinessContext ctx, RoleEntity role) {
 
             if (role.allyStatus == AllyStatus.Player) {
                 return;
@@ -44,6 +44,21 @@ namespace Zangeki {
                 VFXFrameApp.VFX_PlaySwooshLeft(ctx, pos);
             }
 
+        }
+
+        public static void RolePlaySwooshBreakVFX(GameBusinessContext ctx, RoleEntity role) {
+
+            if (role.allyStatus == AllyStatus.Player) {
+                return;
+            }
+
+            if (role.fsmCom.status != RoleFSMStatus.Dead) {
+                return;
+            }
+
+            var dir = role.faceDir;
+            var pos = role.Pos + new Vector2(0, 0.5f);
+            VFXFrameApp.VFX_PlaySwooshBreak1(ctx, pos);
         }
 
         public static void RolePlaySlashVFX(GameBusinessContext ctx, RoleEntity role) {

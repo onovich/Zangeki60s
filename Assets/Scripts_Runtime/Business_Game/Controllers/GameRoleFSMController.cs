@@ -57,7 +57,7 @@ namespace Zangeki {
 
             if (fsm.casting_currentFrame == fsm.casting_swooshFrame) {
                 if (role.allyStatus == AllyStatus.Enemy) {
-                    GameRoleVFXDomain.RolePlayCastVFX(ctx, role);
+                    GameRoleVFXDomain.RolePlaySwooshVFX(ctx, role);
                 }
             }
 
@@ -122,7 +122,11 @@ namespace Zangeki {
             }
 
             // VFX
-            VFXParticelApp.AddVFXToWorld(ctx.vfxParticelContext, role.deadVFXName, role.deadVFXDuration, role.Pos);
+            if (role.allyStatus == AllyStatus.Enemy) {
+                GameRoleVFXDomain.RolePlaySwooshBreakVFX(ctx, role);
+            } else {
+                VFXParticelApp.AddVFXToWorld(ctx.vfxParticelContext, role.deadVFXName, role.deadVFXDuration, role.Pos);
+            }
 
             // Camera
             GameCameraDomain.ShakeOnce(ctx);

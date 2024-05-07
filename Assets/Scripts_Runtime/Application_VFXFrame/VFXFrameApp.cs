@@ -208,6 +208,7 @@ namespace Zangeki {
             VFXFrameApp.AddVFXToWorld(ctx.vfxFrameContext, "VFX_Blade3", frames, false, frameInterval, pos, layer);
         }
 
+        // Blood
         public static void VFX_PlayBlood(GameBusinessContext ctx, Vector2 pos) {
             if (!ctx.currentMapEntity.isBlind) return;
             var table = ctx.templateInfraContext.FrameVFX_Get();
