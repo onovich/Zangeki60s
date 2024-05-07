@@ -38,7 +38,9 @@ namespace Zangeki {
             // UI
             UIApp.GameInfo_Open(ctx.uiContext, owner.hpMax);
 
-            // Cursor
+            // BGM
+            var soundTable = ctx.templateInfraContext.SoundTable_Get();
+            SoundApp.BGM_PlayLoop(ctx.soundContext, soundTable.bgmLoop, 1, soundTable.bgmVolume, false);
 
         }
 

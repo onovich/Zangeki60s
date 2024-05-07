@@ -17,6 +17,9 @@ namespace Zangeki {
         FrameVFXTM frameVFXTable;
         public AsyncOperationHandle frameVFXHandle;
 
+        SoundTable soundTable;
+        public AsyncOperationHandle soundTableHandle;
+
         public TemplateInfraContext() {
             mapDict = new Dictionary<int, MapTM>();
             roleDict = new Dictionary<int, RoleTM>();
@@ -64,6 +67,15 @@ namespace Zangeki {
 
         public FrameVFXTM FrameVFX_Get() {
             return frameVFXTable;
+        }
+
+        // Sound
+        public void SoundTable_Set(SoundTable soundTable) {
+            this.soundTable = soundTable;
+        }
+
+        public SoundTable SoundTable_Get() {
+            return soundTable;
         }
 
         // Clear

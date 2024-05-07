@@ -39,6 +39,13 @@ namespace Zangeki {
                 ctx.frameVFXHandle = handle;
             }
 
+            {
+                var handle = Addressables.LoadAssetAsync<SoundTable>("Table_Sound");
+                var soundTable = await handle.Task;
+                ctx.SoundTable_Set(soundTable);
+                ctx.soundTableHandle = handle;
+            }
+
         }
 
         public static void Release(TemplateInfraContext ctx) {
@@ -53,6 +60,9 @@ namespace Zangeki {
             }
             if (ctx.frameVFXHandle.IsValid()) {
                 Addressables.Release(ctx.frameVFXHandle);
+            }
+            if (ctx.soundTableHandle.IsValid()) {
+                Addressables.Release(ctx.soundTableHandle);
             }
         }
 

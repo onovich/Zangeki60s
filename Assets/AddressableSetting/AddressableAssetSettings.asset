@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 282cfba68189b49ab8690025f55a13da, type: 2}
   - {fileID: 11400000, guid: 75f44b1451cbf49e89390f49eea75f13, type: 2}
   - {fileID: 11400000, guid: ba303b2265f7349c29a4fd83a5cd79c5, type: 2}
+  - {fileID: 11400000, guid: 66b28fac3f1794a7e9d032127fe4b349, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -109,6 +110,7 @@ MonoBehaviour:
     - TM_Spike
     - TM_FrameVFX
     - Sound_AudioSource
+    - Table_Sound
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 2316a715d6a6eb047bed5ac4c42ad64f, type: 2}
