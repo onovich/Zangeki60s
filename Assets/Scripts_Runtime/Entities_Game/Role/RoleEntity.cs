@@ -18,9 +18,10 @@ namespace Zangeki {
         public float attackDistance;
         public int hpMax;
         public int hp;
-        
+
         // Skill
         public int skillTotalFrame;
+        public int swooshFrame;
         public int slashFrame;
         public int damageFrame;
 
@@ -82,7 +83,7 @@ namespace Zangeki {
 
         public void Cast() {
             roleMod?.PlayAttack();
-            fsmCom.EnterCasting(skillTotalFrame, damageFrame, slashFrame);
+            fsmCom.EnterCasting(skillTotalFrame, damageFrame, slashFrame, swooshFrame);
         }
 
         // Move

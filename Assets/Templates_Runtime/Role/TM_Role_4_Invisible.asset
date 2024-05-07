@@ -16,10 +16,11 @@ MonoBehaviour:
   typeName: Invisible
   allyStatus: 2
   moveSpeed: 1
-  attackDistance: 1.4
-  skillTotalFrame: 10
-  slashFrame: 6
-  damageFrame: 8
+  attackDistance: 2
+  skillTotalFrame: 16
+  swooshFrame: 6
+  slashFrame: 10
+  damageFrame: 10
   leavingTotalFrame: 25
   hpMax: 1
   mod: {fileID: 0}

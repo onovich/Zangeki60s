@@ -1,33 +1,9 @@
-关于"拼接"的制作
-1. 当存在"多个Block拼成一个平台s"时，拼接处会有接缝，需要使用 Composite Collider
-
-关于"组合"的设计
-1. 每个 Block 都独立存在，Block 可拉伸
-2. Spike、Block、Trigger、Effector 是独立存在的，不可组合
-3. Path 是一个容器，一个 Path 拥有一个 PathGroup，Group 内的所有 Transform 都会被代理
-4. Block 可以有多份预制体，用 TypeID 区分
-
-关于 Track 编辑时的设计
-1. 分为两个部分：Track Path 和 Tack Container
-2. Track Path 由一组封闭或非封闭的 Path Node 构成，有起止点和方向，指示 Track 的移动轨迹
-3. Tack Container 由一组封闭的 Container Node 构成，指示当前 Track 负载的对象
-4. 使用 IsPointInPolygon 或碰撞检测算法，将 Tack Container 包围的 Block/Spike 等 Bake 进 TM
-
-关于 Track 运行时的设计
-1. Track 先对自己负责，在 Tick 中使用缓动函数将 Track 从当前 Path Node 推向下一个 Path Node
-2. Track 计算每一帧偏移量，把偏移量附加给 Container 里关联的所有物体
-
-待实现机制
-1. 二段跳
-2. 蹬墙跳
-3. 跳跃过程中头顶到 Block 的效果
-√. 被钉刺杀死
-5. 越界死
-*. 被压死、挤死
-*. 前冲
-*. 翻滚
-
-待实现功能
-1. 存档读档
-2. 关卡编辑器
-3. 关卡切换
+1. 预期帧率 = 1f/12
+   实现方式不是以下几种:
+   - 直接将 fixedInterval 设为 1f/12. 因为在我们重构的生命周期中, 每帧必定执行一次 FixedUpdate, 
+     所以 fixedInterval 设为 1f/12 会导致 restTime 总是小于 fixedInterval, 也即 FixedUpdate 会和 Update 周期相同;
+   - 基于上述做法, 移除「每帧必定执行一次 FixedUpdate」. 因为这样就会无法即使响应输入;
+   - 内部实现一个计时器, 当 currentTime > interval 时, Frame++. 这样会导致不同帧检测到的帧号相同, 原本预期执行一次的逻辑被执行多次;
+   采用的方式是:
+   - 配置使用预期帧数, 比如「技能释放后第4帧造成伤害」, 运行时采用 4x12=48 帧进行判定，也即「当前帧==48时触发伤害」
+   使用「帧」而非「秒」作为配置单位的理由是, 使用帧动画, 帧配置符合直觉, 且可以使用 == 运算判断, float 无法用 ==.

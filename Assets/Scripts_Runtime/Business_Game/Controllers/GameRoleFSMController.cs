@@ -5,37 +5,37 @@ namespace Zangeki {
 
     public static class GameRoleFSMController {
 
-        public static void FixedTickFSM(GameBusinessContext ctx, RoleEntity role, float fixdt) {
+        public static void FixedTickFSM(GameBusinessContext ctx, RoleEntity role, float dt) {
 
-            FixedTickFSM_Any(ctx, role, fixdt);
+            FixedTickFSM_Any(ctx, role, dt);
 
             RoleFSMStatus status = role.FSM_GetStatus();
             if (status == RoleFSMStatus.Idle) {
-                FixedTickFSM_Idle(ctx, role, fixdt);
+                FixedTickFSM_Idle(ctx, role, dt);
             } else if (status == RoleFSMStatus.Dead) {
-                FixedTickFSM_Dead(ctx, role, fixdt);
+                FixedTickFSM_Dead(ctx, role, dt);
             } else if (status == RoleFSMStatus.Casting) {
-                FixedTickFSM_Casting(ctx, role, fixdt);
+                FixedTickFSM_Casting(ctx, role, dt);
             } else if (status == RoleFSMStatus.Leaving) {
-                FixedTickFSM_Leaving(ctx, role, fixdt);
+                FixedTickFSM_Leaving(ctx, role, dt);
             } else {
                 GLog.LogError($"GameRoleFSMController.FixedTickFSM: unknown status: {status}");
             }
 
         }
 
-        static void FixedTickFSM_Any(GameBusinessContext ctx, RoleEntity role, float fixdt) {
+        static void FixedTickFSM_Any(GameBusinessContext ctx, RoleEntity role, float dt) {
 
         }
 
-        static void FixedTickFSM_Idle(GameBusinessContext ctx, RoleEntity role, float fixdt) {
+        static void FixedTickFSM_Idle(GameBusinessContext ctx, RoleEntity role, float dt) {
             RoleFSMComponent fsm = role.FSM_GetComponent();
             if (fsm.idle_isEntering) {
                 fsm.idle_isEntering = false;
             }
 
             // Move
-            GameRoleDomain.ApplyMove(ctx, role, fixdt);
+            GameRoleDomain.ApplyMove(ctx, role, dt);
 
             // Cast
             if (role.allyStatus == AllyStatus.Player) {
@@ -49,29 +49,29 @@ namespace Zangeki {
 
         }
 
-        static void FixedTickFSM_Casting(GameBusinessContext ctx, RoleEntity role, float fixdt) {
+        static void FixedTickFSM_Casting(GameBusinessContext ctx, RoleEntity role, float dt) {
             RoleFSMComponent fsm = role.FSM_GetComponent();
             if (fsm.casting_isEntering) {
                 fsm.casting_isEntering = false;
+            }
+
+            if (fsm.casting_currentFrame == fsm.casting_swooshFrame) {
                 if (role.allyStatus == AllyStatus.Enemy) {
-                    Debug.Log("Casting Enter: CurrentFrame:" + fsm.casting_currentFrame + ";SlashFrame:" + fsm.casting_slashFrame);
                     GameRoleVFXDomain.RolePlayCastVFX(ctx, role);
                 }
             }
 
             // Move
-            GameRoleDomain.ApplyMove(ctx, role, fixdt);
+            GameRoleDomain.ApplyMove(ctx, role, dt);
 
             if (fsm.casting_currentFrame == fsm.casting_slashFrame) {
                 if (role.allyStatus == AllyStatus.Enemy) {
-                    Debug.Log("Casting Slash: CurrentFrame:" + fsm.casting_currentFrame + ";SlashFrame:" + fsm.casting_slashFrame);
                     GameRoleVFXDomain.RolePlaySlashVFX(ctx, role);
                 }
             }
 
             // Damage
             if (fsm.casting_currentFrame == fsm.casting_damageFrame) {
-                Debug.Log("Casting Damage: CurrentFrame:" + fsm.casting_currentFrame + ";DamageFrame:" + fsm.casting_damageFrame);
                 GameRoleDomain.ApplyDamage(ctx, role);
             }
 
@@ -90,14 +90,14 @@ namespace Zangeki {
             }
         }
 
-        static void FixedTickFSM_Leaving(GameBusinessContext ctx, RoleEntity role, float fixdt) {
+        static void FixedTickFSM_Leaving(GameBusinessContext ctx, RoleEntity role, float dt) {
             RoleFSMComponent fsm = role.FSM_GetComponent();
             if (fsm.leaving_isEntering) {
                 fsm.idle_isEntering = false;
             }
 
             // Move
-            GameRoleDomain.ApplyMove(ctx, role, fixdt);
+            GameRoleDomain.ApplyMove(ctx, role, dt);
 
             // Stage
             GameRoleDomain.ApplyStage(ctx, role);
@@ -115,7 +115,7 @@ namespace Zangeki {
             fsm.Leaving_IncFrame();
         }
 
-        static void FixedTickFSM_Dead(GameBusinessContext ctx, RoleEntity role, float fixdt) {
+        static void FixedTickFSM_Dead(GameBusinessContext ctx, RoleEntity role, float dt) {
             RoleFSMComponent fsm = role.FSM_GetComponent();
             if (fsm.dead_isEntering) {
                 fsm.dead_isEntering = false;

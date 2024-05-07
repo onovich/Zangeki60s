@@ -23,7 +23,7 @@ namespace Zangeki {
             ProcessInput(ctx, dt);
             PreTick(ctx, dt);
 
-            const float intervalTime = 1f / 12;
+            const float intervalTime = 0.01f;
             ref float restSec = ref ctx.fixedRestSec;
             restSec += dt;
             if (restSec < intervalTime) {
@@ -59,6 +59,15 @@ namespace Zangeki {
                 // Game
                 GameGameDomain.ApplyGameTime(ctx, dt);
 
+            }
+        }
+
+        static void FixedTick(GameBusinessContext ctx, float dt) {
+            var game = ctx.gameEntity;
+            var status = game.fsmComponent.status;
+            var map = ctx.currentMapEntity;
+            if (status == GameStatus.Gaming) {
+
                 // Wave
                 GameWaveDomain.ApplySpawnWaveEnemies(ctx, map, dt);
 
@@ -66,33 +75,22 @@ namespace Zangeki {
                 var roleLen = ctx.roleRepo.TakeAll(out var roleArr);
                 for (int i = 0; i < roleLen; i++) {
                     var role = roleArr[i];
-                    GameRoleDomain.CheckAndUnSpawn(ctx, role);
-                }
-
-                // Result
-                GameGameDomain.ApplyGameResult(ctx);
-            }
-            if (status == GameStatus.GameOver) {
-                GameGameDomain.ApplyGameOver(ctx, dt);
-            }
-        }
-
-        static void FixedTick(GameBusinessContext ctx, float fixdt) {
-            var game = ctx.gameEntity;
-            var status = game.fsmComponent.status;
-            if (status == GameStatus.Gaming) {
-                // Roles
-                var roleLen = ctx.roleRepo.TakeAll(out var roleArr);
-                for (int i = 0; i < roleLen; i++) {
-                    var role = roleArr[i];
-                    GameRoleFSMController.FixedTickFSM(ctx, role, fixdt);
+                    GameRoleFSMController.FixedTickFSM(ctx, role, dt);
                 }
 
                 // VFX
-                VFXFrameApp.LateTick(ctx.vfxFrameContext, fixdt);
+                for (int i = 0; i < roleLen; i++) {
+                    var role = roleArr[i];
+                    GameRoleVFXDomain.TickRoleWalkVFX(ctx, role, dt);
+                }
 
-                Physics2D.Simulate(fixdt);
+                Physics2D.Simulate(dt);
             }
+            // VFX
+            VFXFrameApp.LateTick(ctx.vfxFrameContext, dt);
+
+            // VFX
+            VFXParticelApp.LateTick(ctx.vfxParticelContext, dt);
         }
 
         static void LateTick(GameBusinessContext ctx, float dt) {
@@ -100,23 +98,26 @@ namespace Zangeki {
             var status = game.fsmComponent.status;
             var owner = ctx.Role_GetOwner();
             if (status == GameStatus.Gaming) {
-
                 // Camera
                 CameraApp.LateTick(ctx.cameraContext, dt);
 
                 // UI
                 UIApp.GameInfo_RefreshTime(ctx.uiContext, game.fsmComponent.gaming_gameTime);
 
-                // VFX
+                // Result
+                GameGameDomain.ApplyGameResult(ctx);
+
+                // Roles
                 var roleLen = ctx.roleRepo.TakeAll(out var roleArr);
                 for (int i = 0; i < roleLen; i++) {
                     var role = roleArr[i];
-                    GameRoleVFXDomain.TickRoleWalkVFX(ctx, role, dt);
+                    GameRoleDomain.CheckAndUnSpawn(ctx, role);
                 }
-
             }
-            // VFX
-            VFXParticelApp.LateTick(ctx.vfxParticelContext, dt);
+            // Game Over
+            if (status == GameStatus.GameOver) {
+                GameGameDomain.ApplyGameOver(ctx, dt);
+            }
         }
 
         public static void TearDown(GameBusinessContext ctx) {
