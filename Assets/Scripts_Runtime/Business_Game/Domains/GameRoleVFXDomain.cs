@@ -17,7 +17,7 @@ namespace Zangeki {
             if (role.walkVFXTimer < role.walkVFXInterval) {
                 return;
             }
-            role.walkVFXTimer = 0;
+            role.walkVFXTimer -= role.walkVFXInterval;
             var dir = role.faceDir;
             if (dir == Vector2.right) {
                 VFXFrameApp.VFX_PlayTapLeft(ctx, role.Pos);
